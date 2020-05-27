@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_perjalanan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+            <EditText
+                android:id="@+id/et_tempat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mau kemana anda" />
+            <Button
+                android:id="@+id/btn_perjalanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mulai Perjalanan"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/lv_penjemputan"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/layout_kas"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama : Andi"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:id="@+id/tv_no_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No HP : 0897812918"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barang bawaan"
+            android:textStyle="bold"
+            android:id="@+id/tv_barang"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah"
+            android:textStyle="bold"
+            android:id="@+id/tv_jumlah"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_telepon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telpon"/>
+        <Button
+            android:id="@+id/btn_angkut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Angkut"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_mencari"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Penjemputan"
+            android:textAlignment="center"
+            android:layout_marginBottom="5dp"/>
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/tv_full"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:padding="10dp"
+        android:text="FULL"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

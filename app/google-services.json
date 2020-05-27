@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "206020158738",
+    "firebase_url": "https://angkut-apps-ff3b7.firebaseio.com",
+    "project_id": "angkut-apps-ff3b7",
+    "storage_bucket": "angkut-apps-ff3b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206020158738:android:a7b185751cf9320d43ffcb",
+        "android_client_info": {
+          "package_name": "id.co.myproject.angkutapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206020158738-1o2m6h8qiv8mhssed75k6ktkkkf55c62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps",
+            "certificate_hash": "aa42bdd86626a359918e2fced12ade05269892bf"
+          }
+        },
+        {
+          "client_id": "206020158738-aqfrtdfhiou599dvjgsci0ut6htvkq55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsXgWQMXWvmnkSparBF44Ah4jMiUFuPws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206020158738-aqfrtdfhiou599dvjgsci0ut6htvkq55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

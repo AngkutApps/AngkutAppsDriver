@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:padding="10dp"
+
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_weight="10"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_profil"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:src="@drawable/ic_person_black_24dp"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textStyle="bold"
+                android:id="@+id/tv_nama"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No HP : 02910"
+                android:textStyle="bold"
+                android:id="@+id/tv_no_hp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

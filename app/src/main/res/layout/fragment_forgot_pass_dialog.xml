@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:elevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INPUT PASSWORD BARU ANDA"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="15sp"
+                android:textColor="#444343"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password Baru"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#444343"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="20sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_below="@id/tv_password"
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:hintTextColor="@android:color/transparent"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:padding="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Tulis password baru anda"
+                android:background="@drawable/bg_input"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <RelativeLayout
+                android:id="@+id/p_item_1_parent"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/password_items"
+                android:layout_marginTop="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/p_item_1_icon_parent"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    app:cardBackgroundColor="@color/colorCheckNo"
+                    app:cardCornerRadius="11dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_done" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/p_item_1_icon_parent"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="8 karakter"
+                    android:textColor="@color/colorFormText"
+                    android:textSize="13dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/p_item_2_parent"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/p_item_1_parent"
+                android:layout_marginTop="5dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/p_item_2_icon_parent"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    app:cardBackgroundColor="@color/colorCheckNo"
+                    app:cardCornerRadius="11dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_done" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/p_item_2_icon_parent"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="Minimal 1 uppercase"
+                    android:textColor="@color/colorFormText"
+                    android:textSize="13dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/p_item_3_parent"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/p_item_2_parent"
+                android:layout_marginTop="5dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/p_item_3_icon_parent"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    app:cardBackgroundColor="@color/colorCheckNo"
+                    app:cardCornerRadius="11dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_done" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/p_item_3_icon_parent"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="Minimmal 1 angka"
+                    android:textColor="@color/colorFormText"
+                    android:textSize="13dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+        <TextView
+            android:textColor="#444343"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Konfirmasi Password Baru"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="20sp"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/et_confirm_password"
+            android:padding="15dp"
+            android:hint="Tulis password baru"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:ems="10"
+            android:background="@drawable/bg_input"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:background="#ECEBEB">
+            <TextView
+                android:id="@+id/tv_batal"
+                android:textColor="#444343"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batal"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="15sp"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/tv_selesai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selesai"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
