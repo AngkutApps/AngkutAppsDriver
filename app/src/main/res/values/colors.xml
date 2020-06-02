@@ -19,5 +19,11 @@
     <color name="proses">#FFC107</color>
     <color name="red_main">#CE0303</color>
     <color name="red_second">#A80303</color>
+    <color name="textColorWhite">#FFFFFF</color>
+    <color name="textBlack">#020202</color>
+    <color name="colorAbuAbu">#BDB8B8</color>
+    <color name="colorBackgroundButton">#DAD5D5</color>
+    <color name="colorYellow">#FFEB3B</color>
+
 
 </resources>

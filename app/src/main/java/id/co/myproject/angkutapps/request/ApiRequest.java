@@ -2,9 +2,10 @@ package id.co.myproject.angkutapps.request;
 
 import java.util.List;
 
+import id.co.myproject.angkutapps.model.JenisKendaraan;
 import id.co.myproject.angkutapps.model.Penjemputan;
 import id.co.myproject.angkutapps.model.Penumpang;
-import id.co.myproject.angkutapps.model.User;
+import id.co.myproject.angkutapps.model.Driver;
 import id.co.myproject.angkutapps.model.Value;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -15,19 +16,28 @@ import retrofit2.http.Query;
 
 public interface ApiRequest {
     @FormUrlEncoded
-    @POST("login_user.php")
+    @POST("login_driver.php")
     Call<Value> loginUserRequest(
-            @Field("email") String email,
-            @Field("password") String password
+            @Field("no_hp") String noHp
     );
 
     @FormUrlEncoded
-    @POST("registrasi_user.php")
+    @POST("cek_no_hp_driver.php")
+    Call<Value> cekNoHpRequest(
+            @Field("no_hp") String nohp
+    );
+
+    @FormUrlEncoded
+    @POST("registrasi_driver.php")
     Call<Value> registrasiUserRequest(
-            @Field("email") String email,
-            @Field("password") String password,
+            @Field("kode_driver") String kodeDriver,
             @Field("nama") String nama,
-            @Field("foto") String foto
+            @Field("email") String email,
+            @Field("no_hp") String np_hp,
+            @Field("jk") String jk,
+            @Field("merk_mobil") String merkMobil,
+            @Field("id_jenis_kendaraan") String idJenisKendaraan,
+            @Field("plat_mobil") String platMobil
     );
 
 
@@ -45,7 +55,7 @@ public interface ApiRequest {
     );
 
     @GET("tampil_user.php")
-    Call<User> userByIdRequest(
+    Call<Driver> userByIdRequest(
             @Query("id_user") int idUser
     );
 
@@ -82,4 +92,7 @@ public interface ApiRequest {
     Call<Penumpang> getPenumpangById(
             @Query("id_penumpang") String idPenumpang
     );
+
+    @GET("tampil_jenis.php")
+    Call<List<JenisKendaraan>> getJenisKendaraan();
 }

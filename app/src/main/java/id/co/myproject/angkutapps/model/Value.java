@@ -12,22 +12,26 @@ public class Value {
     @Expose
     private String message;
 
-    @SerializedName("id_user")
+    @SerializedName("kode_driver")
     @Expose
-    private int idUser;
+    private String kodeDriver;
+
+    @SerializedName("no_hp")
+    @Expose
+    private String noHpDriver;
 
     @SerializedName("id_usulan")
     @Expose
     private int idUsulan;
 
 
-    public Value(int value, String message, int idUser, int idUsulan) {
+    public Value(int value, String message, String kodeDriver, String noHpDriver, int idUsulan) {
         this.value = value;
         this.message = message;
-        this.idUser = idUser;
+        this.kodeDriver = kodeDriver;
+        this.noHpDriver = noHpDriver;
         this.idUsulan = idUsulan;
     }
-
 
     public int getValue() {
         return value;
@@ -45,12 +49,20 @@ public class Value {
         this.message = message;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public String getKodeDriver() {
+        return kodeDriver;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setKodeDriver(String kodeDriver) {
+        this.kodeDriver = kodeDriver;
+    }
+
+    public String getNoHpDriver() {
+        return noHpDriver;
+    }
+
+    public void setNoHpDriver(String noHpDriver) {
+        this.noHpDriver = noHpDriver;
     }
 
     public int getIdUsulan() {

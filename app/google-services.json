@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "206020158738",
-    "firebase_url": "https://angkut-apps-ff3b7.firebaseio.com",
-    "project_id": "angkut-apps-ff3b7",
-    "storage_bucket": "angkut-apps-ff3b7.appspot.com"
+    "project_number": "1070021869137",
+    "firebase_url": "https://angkut-apps-d7392.firebaseio.com",
+    "project_id": "angkut-apps-d7392",
+    "storage_bucket": "angkut-apps-d7392.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:206020158738:android:a7b185751cf9320d43ffcb",
+        "mobilesdk_app_id": "1:1070021869137:android:b092808628f138b7080270",
         "android_client_info": {
           "package_name": "id.co.myproject.angkutapps"
         }
       },
       "oauth_client": [
         {
-          "client_id": "206020158738-1o2m6h8qiv8mhssed75k6ktkkkf55c62.apps.googleusercontent.com",
+          "client_id": "1070021869137-bf98ansm9hcov6r5ghj9ksp7sft7tt9k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "id.co.myproject.angkutapps",
@@ -23,20 +23,65 @@
           }
         },
         {
-          "client_id": "206020158738-aqfrtdfhiou599dvjgsci0ut6htvkq55.apps.googleusercontent.com",
+          "client_id": "1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDsXgWQMXWvmnkSparBF44Ah4jMiUFuPws"
+          "current_key": "AIzaSyCt_JHin4T92dYKlI3e9B0q-byzkS265MM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "206020158738-aqfrtdfhiou599dvjgsci0ut6htvkq55.apps.googleusercontent.com",
+              "client_id": "1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070021869137:android:30d5de79535460b3080270",
+        "android_client_info": {
+          "package_name": "id.co.myproject.angkutapps_penumpang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070021869137-7j4le5k3jsi3fiqmoe94mch6lv2h3jk0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "3f6fe0e101ae8ee79b052134c58af9bc8d274934"
+          }
+        },
+        {
+          "client_id": "1070021869137-s67kl2me2k3j60pj0uu7vgsgu9upe0fv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "aa42bdd86626a359918e2fced12ade05269892bf"
+          }
+        },
+        {
+          "client_id": "1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt_JHin4T92dYKlI3e9B0q-byzkS265MM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

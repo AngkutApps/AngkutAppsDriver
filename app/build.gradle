@@ -13,8 +13,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL", "\"https://anggkutapps.000webhostapp.com/angkut_api/\""
-        buildConfigField "String", "BASE_URL_GAMBAR", "\"https://anggkutapps.000webhostapp.com/angkut_api/gambar/\""
+        buildConfigField "String", "BASE_URL", "\"https://angkutapps.com/angkut_api/driver/\""
+        buildConfigField "String", "BASE_URL_GAMBAR", "\"https://angkutapps.com/angkut_api/gambar/\""
     }
 
     buildTypes {
@@ -49,6 +49,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:17.0.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
@@ -56,6 +58,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.firebase:geofire-android:2.1.2'
 
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

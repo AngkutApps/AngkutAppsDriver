@@ -1,13 +1,20 @@
 package id.co.myproject.angkutapps.helper;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.view.View;
+import android.widget.ScrollView;
 
 public class Utils {
     public static final String LOGIN_KEY = "login";
-    public static final String ID_USER_KEY = "id_user";
+    public static final String KODE_DRIVER_KEY = "kode_driver";
+    public static final String NOHP_DRIVER_KEY = "no_hp_driver";
     public static final String LOGIN_STATUS = "status_login";
+    public static final int TYPE_SIGN_IN_BUNDLE = 23;
+    public static final int TYPE_SIGN_UP_BUNDLE = 24;
 
     public static String getDayName(int day){
         switch(day){
@@ -64,6 +71,25 @@ public class Utils {
             }
         }
         return false;
+    }
+
+    public static void scrollToView(final View scrollView, final View view) {
+        view.requestFocus();
+        final Rect scrollBounds = new Rect();
+        scrollView.getHitRect(scrollBounds);
+        if (!view.getLocalVisibleRect(scrollBounds)) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    int toScroll = getRelativeTop(view) - getRelativeTop(scrollView);
+                    ((ScrollView) scrollView).smoothScrollTo(0, toScroll-120);
+                }
+            });
+        }
+    }
+    public static int getRelativeTop(View myView) {
+        if (myView.getParent() == myView.getRootView()) return myView.getTop();
+        else return myView.getTop() + getRelativeTop((View) myView.getParent());
     }
 
 //    private void statusBarTransparent(Context context){
