@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        >
+
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/loading"
+            android:id="@+id/imgKonfirmasiEmail"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Konfirmasi Email / Nomor Hp"
+            android:layout_below="@+id/imgKonfirmasiEmail"
+            android:layout_centerHorizontal="true"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/textBlack"
+            android:id="@+id/titleLupaPassword"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleLupaPassword"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/tvDescTitleKonfirmasiEmail"
+            android:text="@string/desc_title_konfirmasi_email"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDescTitleKonfirmasiEmail"
+            android:layout_marginTop="20dp"
+            android:paddingRight="21dp"
+            android:paddingLeft="21dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="10dp"
+            android:id="@+id/frameOTP"
+            android:background="@drawable/bg_fragment_lupa_password"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linearOTP"
+                >
+
+                <EditText
+                    style="@style/KonfirmasiOTP"
+                    android:id="@+id/etKonfirOTP1"
+                    />
+
+                <EditText
+                    style="@style/KonfirmasiOTP"
+                    android:id="@+id/etKonfirOTP2"
+                    />
+
+                <EditText
+                    style="@style/KonfirmasiOTP"
+                    android:id="@+id/etKonfirOTP3"
+                    />
+
+                <EditText
+                    style="@style/KonfirmasiOTP"
+                    android:id="@+id/etKonfirOTP4"
+                    />
+
+                <EditText
+                    style="@style/KonfirmasiOTP"
+                    android:id="@+id/etKonfirOTP5"
+                    />
+
+                <EditText
+                    style="@style/KonfirmasiOTP"
+                    android:id="@+id/etKonfirOTP6"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_masuk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button_login"
+                android:text="Masuk"
+                android:textSize="18sp"
+                android:layout_marginTop="13dp"
+                android:textAllCaps="false"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/textColorWhite"
+                android:layout_below="@+id/linearOTP"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frameOTP"
+            android:layout_centerHorizontal="true"
+            android:text="Kode OTP belum terkirim ?"
+            android:layout_marginTop="34dp"
+            android:id="@+id/ketKodeOTP"
+            />
+
+        <TextView
+            android:id="@+id/tv_kirim_ulang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kirim Ulang"
+            android:layout_below="@+id/ketKodeOTP"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

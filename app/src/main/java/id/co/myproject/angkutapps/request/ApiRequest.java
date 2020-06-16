@@ -2,32 +2,46 @@ package id.co.myproject.angkutapps.request;
 
 import java.util.List;
 
+import id.co.myproject.angkutapps.model.FCMResponse;
+import id.co.myproject.angkutapps.model.JenisKendaraan;
 import id.co.myproject.angkutapps.model.Penjemputan;
 import id.co.myproject.angkutapps.model.Penumpang;
-import id.co.myproject.angkutapps.model.User;
+import id.co.myproject.angkutapps.model.Driver;
 import id.co.myproject.angkutapps.model.Value;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface ApiRequest {
     @FormUrlEncoded
-    @POST("login_user.php")
+    @POST("login_driver.php")
     Call<Value> loginUserRequest(
-            @Field("email") String email,
-            @Field("password") String password
+            @Field("no_hp") String noHp
     );
 
     @FormUrlEncoded
-    @POST("registrasi_user.php")
+    @POST("cek_no_hp_driver.php")
+    Call<Value> cekNoHpRequest(
+            @Field("no_hp") String nohp
+    );
+
+    @FormUrlEncoded
+    @POST("registrasi_driver.php")
     Call<Value> registrasiUserRequest(
-            @Field("email") String email,
-            @Field("password") String password,
+            @Field("kode_driver") String kodeDriver,
             @Field("nama") String nama,
-            @Field("foto") String foto
+            @Field("email") String email,
+            @Field("no_hp") String np_hp,
+            @Field("jk") String jk,
+            @Field("merk_mobil") String merkMobil,
+            @Field("id_jenis_kendaraan") String idJenisKendaraan,
+            @Field("plat_mobil") String platMobil
     );
 
 
@@ -45,7 +59,7 @@ public interface ApiRequest {
     );
 
     @GET("tampil_user.php")
-    Call<User> userByIdRequest(
+    Call<Driver> userByIdRequest(
             @Query("id_user") int idUser
     );
 
@@ -82,4 +96,20 @@ public interface ApiRequest {
     Call<Penumpang> getPenumpangById(
             @Query("id_penumpang") String idPenumpang
     );
+
+    @GET("tampil_jenis.php")
+    Call<List<JenisKendaraan>> getJenisKendaraan();
+
+
+    //    GoogleMapsApi
+    @GET
+    Call<String> getPath(@Url String url);
+
+    @Headers({
+            "Content-Type:application/json",
+            "Authorization:key=AAAA-SJF_lE:APA91bF26uwqPJ-bLQjeB0KotXnpRe0986RjsfgDeAueKMzOGTWSyltxndSY5l5MRj6AweIa7aH78BqKPv6MaLPdRp05mCIo5KJp6iSNJ2asobQ90W_9yE8KCpkQaCWGAt7sYu6GsUkx"
+    })
+    @POST("fcm/send")
+    Call<FCMResponse> sendMessage(@Body DataMessage body);
+
 }

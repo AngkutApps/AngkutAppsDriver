@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import id.co.myproject.angkutapps.vuew.HomeFragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.home_nav){
-                    setFragment(new NearbyMapsFragment());
+//                    setFragment(new NearbyMapsFragment());
                 }else if (item.getItemId() == R.id.history_nav){
                     setFragment(new HistoryFragment());
                 }else if (item.getItemId() == R.id.payment_nav){
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        setFragment(new NearbyMapsFragment());
+        setFragment(new HomeFragment());
 
     }
 

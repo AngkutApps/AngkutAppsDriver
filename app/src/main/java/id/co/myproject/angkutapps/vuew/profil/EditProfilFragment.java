@@ -35,11 +35,10 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 
 import id.co.myproject.angkutapps.BuildConfig;
-import id.co.myproject.angkutapps.ProfilFragment;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.helper.ConvertBitmap;
 import id.co.myproject.angkutapps.helper.Utils;
-import id.co.myproject.angkutapps.model.User;
+import id.co.myproject.angkutapps.model.Driver;
 import id.co.myproject.angkutapps.model.Value;
 import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
@@ -107,7 +106,7 @@ public class EditProfilFragment extends Fragment implements ConvertBitmap {
 
         radioSexGroup = view.findViewById(R.id.radioSex);
 
-        idUser = getArguments().getInt(Utils.ID_USER_KEY);
+        idUser = getArguments().getInt(Utils.KODE_DRIVER_KEY);
 
         loadDataUser();
 
@@ -223,15 +222,15 @@ public class EditProfilFragment extends Fragment implements ConvertBitmap {
 
     private void loadDataUser() {
 
-        Call<User> callUser = apiRequest.userByIdRequest(idUser);
-        callUser.enqueue(new Callback<User>() {
+        Call<Driver> callUser = apiRequest.userByIdRequest(idUser);
+        callUser.enqueue(new Callback<Driver>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<Driver> call, Response<Driver> response) {
                 if (response.isSuccessful()){
-                    User user = response.body();
+                    Driver user = response.body();
                     etNama.setText(user.getNama());
                     etEmail.setText(user.getEmail());
-                    etKtp.setText(user.getKtp());
+//                    etKtp.setText(user.getKtp());
                     etMerkMobil.setText(user.getMerkMobil());
                     etPlat.setText(user.getPlat());
                     etNoTelp.setText(user.getNoHp());
@@ -248,7 +247,7 @@ public class EditProfilFragment extends Fragment implements ConvertBitmap {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Driver> call, Throwable t) {
                 Toast.makeText(getActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

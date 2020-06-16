@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import id.co.myproject.angkutapps.BuildConfig;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.helper.Utils;
-import id.co.myproject.angkutapps.model.User;
+import id.co.myproject.angkutapps.model.Driver;
 import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
 import retrofit2.Call;
@@ -57,7 +57,7 @@ public class AkunInfoFragment extends Fragment {
         
         sharedPreferences = getActivity().getSharedPreferences(Utils.LOGIN_KEY, Context.MODE_PRIVATE);
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
-        idUser = sharedPreferences.getInt(Utils.ID_USER_KEY, 0);
+        idUser = sharedPreferences.getInt(Utils.KODE_DRIVER_KEY, 0);
         
         ivBack = view.findViewById(R.id.iv_back);
         ivUser = view.findViewById(R.id.iv_user);
@@ -76,16 +76,16 @@ public class AkunInfoFragment extends Fragment {
     }
 
     private void loadData() {
-        Call<User> callUser = apiRequest.userByIdRequest(idUser);
-        callUser.enqueue(new Callback<User>() {
+        Call<Driver> callUser = apiRequest.userByIdRequest(idUser);
+        callUser.enqueue(new Callback<Driver>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<Driver> call, Response<Driver> response) {
                 if (response.isSuccessful()){
-                    User user = response.body();
+                    Driver user = response.body();
                     tvUser.setText(user.getNama());
                     tvEmail.setText(user.getEmail());
                     tvNama.setText(user.getNama());
-                    tvKtp.setText(user.getKtp());
+//                    tvKtp.setText(user.getKtp());
                     tvMerkMobil.setText(user.getMerkMobil());
                     tvPlat.setText(user.getPlat());
                     tvNoHp.setText(user.getNoHp());
@@ -95,7 +95,7 @@ public class AkunInfoFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Driver> call, Throwable t) {
                 Toast.makeText(getActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

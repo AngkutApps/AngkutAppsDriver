@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/aquaman1"/>
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/ratingBar"
+        android:rating="4"
+        android:max="5"
+        android:layout_width="wrap_content"
+        style="@style/customRatingBar"
+        android:layout_height="20dp"
+        android:stepSize="0.5" />
+    <TextView
+        android:id="@+id/tv_nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mantap Djiwa"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_alamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jalan Pandang raya, B214 Kecidoahihoadaidouad"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:textSize="10sp"
+        android:id="@+id/tv_jarak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="120km"/>
+    <TextView
+        android:textSize="10sp"
+        android:id="@+id/tv_waktu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="120 menit"/>
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detail Barang"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:textSize="10sp"
+        android:id="@+id/tv_jumlah_orang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Dewasa, 3 Anak"/>
+    <TextView
+        android:textSize="10sp"
+        android:id="@+id/tv_jumlah_barang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="barang ashaoshaoaio"
+        android:textAlignment="center"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_terima"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Terima"
+            android:textAllCaps="false"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_button_next"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"/>
+        <Button
+            android:id="@+id/btn_batalkan"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Batalkan"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_button_next"
+            android:backgroundTint="@color/quantum_error_dark"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</LinearLayout>

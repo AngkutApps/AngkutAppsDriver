@@ -127,7 +127,7 @@ public class NearbyMapsFragment extends Fragment implements
         mapFragment.getMapAsync(this);
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
         sharedPreferences = getActivity().getSharedPreferences(Utils.LOGIN_KEY, Context.MODE_PRIVATE);
-        idDriver = sharedPreferences.getInt(Utils.ID_USER_KEY, 0);
+        idDriver = 0;
         tvFull = getActivity().findViewById(R.id.tv_full);
         btnPerjalanan = getActivity().findViewById(R.id.btn_perjalanan);
         etTempat = getActivity().findViewById(R.id.et_tempat);
