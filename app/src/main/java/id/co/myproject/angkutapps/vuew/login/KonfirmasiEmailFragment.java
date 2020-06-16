@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
@@ -24,6 +25,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -55,6 +58,10 @@ public class KonfirmasiEmailFragment extends Fragment{
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+    FirebaseDatabase db;
+    DatabaseReference db_drivers;
+
+
     private Button btnMasuk;
     String verifCode, noHpUser;
     int type_sign;
@@ -74,6 +81,9 @@ public class KonfirmasiEmailFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
         // init broadcast receiver
+
+        db = FirebaseDatabase.getInstance();
+        db_drivers = db.getReference(Utils.user_driver_tbl);
 
         progressDialog = new ProgressDialog(getActivity());
         sharedPreferences = getActivity().getSharedPreferences(LOGIN_KEY, Context.MODE_PRIVATE);
@@ -329,11 +339,23 @@ public class KonfirmasiEmailFragment extends Fragment{
                     editor.putString(KODE_DRIVER_KEY, kodeDriver);
                     editor.putBoolean(LOGIN_STATUS, true);
                     editor.commit();
-                    progressDialog.dismiss();
-                    Toast.makeText(getActivity(), "Selamat Datang", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
+                    db_drivers.child(user.getKodeDriver()).setValue(user)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(getActivity(), "Selamat Datang", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }else {
                     progressDialog.dismiss();
                     Toast.makeText(getActivity(), ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();

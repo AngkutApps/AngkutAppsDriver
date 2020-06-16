@@ -2,17 +2,21 @@ package id.co.myproject.angkutapps.request;
 
 import java.util.List;
 
+import id.co.myproject.angkutapps.model.FCMResponse;
 import id.co.myproject.angkutapps.model.JenisKendaraan;
 import id.co.myproject.angkutapps.model.Penjemputan;
 import id.co.myproject.angkutapps.model.Penumpang;
 import id.co.myproject.angkutapps.model.Driver;
 import id.co.myproject.angkutapps.model.Value;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface ApiRequest {
     @FormUrlEncoded
@@ -95,4 +99,17 @@ public interface ApiRequest {
 
     @GET("tampil_jenis.php")
     Call<List<JenisKendaraan>> getJenisKendaraan();
+
+
+    //    GoogleMapsApi
+    @GET
+    Call<String> getPath(@Url String url);
+
+    @Headers({
+            "Content-Type:application/json",
+            "Authorization:key=AAAA-SJF_lE:APA91bF26uwqPJ-bLQjeB0KotXnpRe0986RjsfgDeAueKMzOGTWSyltxndSY5l5MRj6AweIa7aH78BqKPv6MaLPdRp05mCIo5KJp6iSNJ2asobQ90W_9yE8KCpkQaCWGAt7sYu6GsUkx"
+    })
+    @POST("fcm/send")
+    Call<FCMResponse> sendMessage(@Body DataMessage body);
+
 }

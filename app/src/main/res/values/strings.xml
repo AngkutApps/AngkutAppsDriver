@@ -8,4 +8,7 @@
     <string name="desc_title_sing_in">Satu klik dan tracking transportasi bookingan anda kapan saja dan dimana saja secara real time</string>
     <string name="desc_title_lupa_password">Masukkan email / nomor hp anda pada saat pendaftaran. Kami akan mengirimkan password default ke email / nomor hp anda</string>
     <string name="desc_title_konfirmasi_email">Kami telah mengirimkan kode OTP ke email / nomor hp anda. Silahkan masukkan 6 digit kode OTP</string>
+    <string name="title_activity_tracking">Map</string>
+    <string name="browser_api_key">AIzaSyDHM50F_UGMFQ0QcTI4_KP0IiD7uwOLzxY</string>
+    <string name="google_direction_api">AIzaSyDHM50F_UGMFQ0QcTI4_KP0IiD7uwOLzxY</string>
 </resources>

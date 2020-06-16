@@ -2,6 +2,7 @@ package id.co.myproject.angkutapps.helper;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
@@ -15,6 +16,25 @@ public class Utils {
     public static final String LOGIN_STATUS = "status_login";
     public static final int TYPE_SIGN_IN_BUNDLE = 23;
     public static final int TYPE_SIGN_UP_BUNDLE = 24;
+
+
+    public static Location mLastLocation = null;
+    public static final String mapsUrl = "https://maps.googleapis.com";
+    public static final String fcmUrl = "https://fcm.googleapis.com/";
+
+    public static final String passenger_destination_tbl = "PassengerDestination";
+    public static final String user_passenger_tbl = "PassengerInformation";
+    public static final String user_driver_tbl = "DriversInformation";
+    public static final String driver_tbl = "Drivers";
+    public static final String destination_tbl = "DriverDestination";
+    public static final String token_tbl = "Tokens";
+    public static final String list_passenger_tbl = "ListPassenger";
+
+
+    public static final String ORDER__RECEIVER = "order_receiver";
+
+
+    public static final String mapsApiUrl = "https://maps.googleapis.com";
 
     public static String getDayName(int day){
         switch(day){

@@ -27,5 +27,11 @@
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">1</item>
     </style>
+    <style name="customRatingBar"
+        parent="android:style/Widget.Material.RatingBar.Small">
+        ... // Additional customizations
+        <item name="colorControlNormal">@color/colorGrey</item>
+        <item name="colorControlActivated">#FFEB3B</item>
+    </style>
 
 </resources>
