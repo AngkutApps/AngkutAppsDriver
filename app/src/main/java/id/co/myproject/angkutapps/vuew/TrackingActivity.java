@@ -40,6 +40,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -88,6 +89,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -517,12 +519,16 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                     listPassenger.put("id_list", idList);
                                     listPassenger.put("id_destinasi", idDestinasi);
                                     listPassenger.put("no_hp_user", noHpUser);
+                                    Calendar calendar = Calendar.getInstance();
+                                    String hari_ini  = DateFormat.format("EEEE", calendar.getTime()).toString();
+                                    String tanggal = DateFormat.format("dd MMM yyyy", calendar.getTime()).toString();
+                                    listPassenger.put("tanggal", hari_ini+", "+tanggal);
                                     dbListPassenger.child(idList).setValue(listPassenger)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()){
-                                                        sendMessageAngkut(customer, "Angkut");
+                                                        sendMessageAngkut(customer, "Angkut", idList);
                                                         Toast.makeText(TrackingActivity.this, "Berhasil menambah penumpang", Toast.LENGTH_SHORT).show();
                                                     }
                                                 }
@@ -532,7 +538,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                             btnCancel.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    sendMessageAngkut(customer, "CancelAngkut");
+                                    sendMessageAngkut(customer, "CancelAngkut", "");
                                     Toast.makeText(TrackingActivity.this, "Anda telah membatalkan orderan", Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -548,12 +554,14 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                 });
     }
 
-    private void sendMessageAngkut(String customer, String title) {
+    private void sendMessageAngkut(String customer, String title, String idList) {
         Token token = new Token(customer);
         String driverToken = FirebaseInstanceId.getInstance().getToken();
         Map<String, String> content = new HashMap<>();
         content.put("title", title);
+        content.put("kode_driver", kodeDriver);
         content.put("driver_token", driverToken);
+        content.put("id_list", idList);
         content.put("message", "");
         DataMessage dataMessage = new DataMessage(token.getToken(), content);
         ApiRequest fcmRequest = FCMClient.getClient(Utils.fcmUrl).create(ApiRequest.class);
