@@ -12,7 +12,7 @@ import id.co.myproject.angkutapps.helper.Utils;
 import id.co.myproject.angkutapps.model.Driver;
 import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
-import id.co.myproject.angkutapps.vuew.profil.AkunInfoFragment;
+import id.co.myproject.angkutapps.view.profil.AkunInfoFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

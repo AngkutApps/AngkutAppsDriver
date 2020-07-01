@@ -100,7 +100,9 @@
                     android:layout_height="30dp"
                     android:src="@drawable/ic_message_black_24dp"
                     android:background="@drawable/bg_circle"
-                    android:padding="5dp"/>
+                    android:padding="5dp"
+                    android:id="@+id/imgButtonChat"
+                    />
                 <ImageView
                     android:layout_marginLeft="20dp"
                     android:layout_width="30dp"

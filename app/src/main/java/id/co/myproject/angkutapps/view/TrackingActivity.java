@@ -1,15 +1,17 @@
-package id.co.myproject.angkutapps.vuew;
+package id.co.myproject.angkutapps.view;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import id.co.myproject.angkutapps.R;
-import id.co.myproject.angkutapps.adapter.DestinasiAdapter;
 import id.co.myproject.angkutapps.adapter.PerjalananAdapter;
 import id.co.myproject.angkutapps.helper.DirectionJSONParser;
 import id.co.myproject.angkutapps.helper.OrderListener;
@@ -23,6 +25,7 @@ import id.co.myproject.angkutapps.model.Token;
 import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.DataMessage;
 import id.co.myproject.angkutapps.request.GoogleMapApi;
+import id.co.myproject.angkutapps.view.profil.dialog_fragment.Df_chat;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,6 +48,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -54,7 +58,6 @@ import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
 import com.firebase.geofire.GeoQueryEventListener;
-import com.google.android.gms.common.api.Api;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -67,7 +70,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -75,7 +77,6 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.api.model.RectangularBounds;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -83,7 +84,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.maps.android.SphericalUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -93,6 +93,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static id.co.myproject.angkutapps.view.HomeFragment.MY_PERMISSION_REQUEST_CODE;
 
 public class TrackingActivity extends FragmentActivity implements OnMapReadyCallback, OrderListener {
 
@@ -117,6 +119,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
     TextView tvNamaPassenger, tvJumlahOrang, tvJumlahBarang, tvFull;
     Button btnCancel, btnAngkut;
     LinearLayout lvActionJemput, lvJemput, lvPenjemputan;
+    ImageView imgButtonChat;
 
     private String destination;
     DatabaseReference tb_drivers, tb_destinasi_driver;
@@ -171,6 +174,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         btnAngkut = findViewById(R.id.btn_angkut);
         btnCancel = findViewById(R.id.btn_cancel);
         tvFull = findViewById(R.id.tv_full);
+        imgButtonChat = findViewById(R.id.imgButtonChat);
 
         tb_destinasi_driver = FirebaseDatabase.getInstance().getReference(Utils.destination_tbl).child(kodeDriver);
         rvPerjalanan.setLayoutManager(new LinearLayoutManager(this));
@@ -181,6 +185,13 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         buildLocationCallback();
         buildLocationRequest();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            }, MY_PERMISSION_REQUEST_CODE);
+        }
         fusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper());
 
         tb_drivers = FirebaseDatabase.getInstance().getReference(Utils.driver_tbl);
@@ -196,6 +207,13 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                     FirebaseDatabase.getInstance().goOnline();
                     buildLocationCallback();
                     buildLocationRequest();
+                    if (ActivityCompat.checkSelfPermission(TrackingActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                            ActivityCompat.checkSelfPermission(TrackingActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                        ActivityCompat.requestPermissions(TrackingActivity.this, new String[]{
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                        }, MY_PERMISSION_REQUEST_CODE);
+                    }
                     fusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper());
 
                     tb_drivers = FirebaseDatabase.getInstance().getReference(Utils.driver_tbl);
@@ -299,7 +317,27 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         };
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case MY_PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    buildLocationCallback();
+                    buildLocationRequest();
+                    displayLocation();
+                }
+        }
+    }
+
     private void displayLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            }, MY_PERMISSION_REQUEST_CODE);
+        }
         fusedLocationProviderClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
@@ -358,6 +396,13 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
 
         buildLocationRequest();
         buildLocationCallback();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            }, MY_PERMISSION_REQUEST_CODE);
+        }
         fusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper());
     }
 
@@ -438,6 +483,12 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                         tvJumlahBarang.setText(destinasiPassenger.getJumlahBarang());
                                         lvPenjemputan.setVisibility(View.VISIBLE);
                                         progressDialog.dismiss();
+                                        imgButtonChat.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                setFragment(new Df_chat(noHpUser));
+                                            }
+                                        });
                                     }else {
                                         Toast.makeText(TrackingActivity.this, "Gagal tampil jemput", Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
@@ -645,5 +696,16 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                 directionTracking = mMap.addPolyline(polylineOptions);
             }
         }
+    }
+
+    private void setFragment(DialogFragment fragment){
+//        FragmentManager fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment prev = fragmentManager.findFragmentByTag("dialog");
+        if (prev !=null){
+            fragmentTransaction.remove(prev);
+        }
+        fragment.show(fragmentTransaction, "dialog");
     }
 }

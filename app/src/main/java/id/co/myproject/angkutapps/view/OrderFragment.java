@@ -1,4 +1,4 @@
-package id.co.myproject.angkutapps.vuew;
+package id.co.myproject.angkutapps.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;

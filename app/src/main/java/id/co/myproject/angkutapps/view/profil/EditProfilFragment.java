@@ -1,4 +1,4 @@
-package id.co.myproject.angkutapps.vuew.profil;
+package id.co.myproject.angkutapps.view.profil;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;

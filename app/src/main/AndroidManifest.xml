@@ -33,9 +33,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".vuew.TrackingActivity"
+            android:name=".view.TrackingActivity"
             android:label="@string/title_activity_tracking"></activity>
-        <activity android:name=".vuew.login.LoginActivity">
+        <activity android:name=".view.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

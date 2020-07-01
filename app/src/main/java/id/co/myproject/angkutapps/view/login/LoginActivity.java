@@ -1,4 +1,4 @@
-package id.co.myproject.angkutapps.vuew.login;
+package id.co.myproject.angkutapps.view.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

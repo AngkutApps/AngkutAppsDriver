@@ -1,4 +1,4 @@
-package id.co.myproject.angkutapps.vuew;
+package id.co.myproject.angkutapps.view;
 
 import android.Manifest;
 import android.content.Context;
@@ -22,9 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
@@ -53,7 +51,6 @@ import com.google.android.libraries.places.api.model.RectangularBounds;
 import com.google.android.libraries.places.api.model.TypeFilter;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -75,7 +72,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.adapter.DestinasiAdapter;
-import id.co.myproject.angkutapps.adapter.PerjalananAdapter;
 import id.co.myproject.angkutapps.helper.Utils;
 import id.co.myproject.angkutapps.model.Destinasi;
 import id.co.myproject.angkutapps.model.Token;
@@ -152,6 +148,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
         buildLocationCallback();
         buildLocationRequest();
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            }, MY_PERMISSION_REQUEST_CODE);
+        }
         fusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper());
 
         tb_drivers = FirebaseDatabase.getInstance().getReference(Utils.driver_tbl);
@@ -273,6 +276,19 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case MY_PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    buildLocationCallback();
+                    buildLocationRequest();
+                    displayLocation();
+                }
+        }
+    }
+
     private void setUpLocation() {
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
@@ -378,6 +394,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         buildLocationRequest();
         buildLocationCallback();
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+            }, MY_PERMISSION_REQUEST_CODE);
+        }
         fusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper());
     }
 }
