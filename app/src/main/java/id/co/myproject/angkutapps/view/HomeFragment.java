@@ -197,7 +197,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 try {
                     LatLng latLng = place.getLatLng();
                     addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
-                    String city = addresses.get(0).getLocality();
+                    String city = addresses.get(0).getSubAdminArea();
                     autocompleteSupportFragment.setHint(place.getAddress());
 
                     String idDestinasi = tb_destinasi_driver.push().getKey();

@@ -78,6 +78,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -99,8 +100,8 @@ import static id.co.myproject.angkutapps.view.HomeFragment.MY_PERMISSION_REQUEST
 public class TrackingActivity extends FragmentActivity implements OnMapReadyCallback, OrderListener {
 
     private GoogleMap mMap;
-    public static final int UPDATE_INTERVAL = 5000;
-    public static final int FASTEST_INTERVAL = 3000;
+    public static final int UPDATE_INTERVAL = 0;
+    public static final int FASTEST_INTERVAL = 0;
     public static final int DISPLACEMENT = 10;
 
     private Polyline directionTracking;
@@ -129,6 +130,8 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
     Marker mCurrentMarker;
     Circle passengerMarker;
     Switch location_switch;
+    boolean driverTracking = false;
+    LatLng latLngPassangerFound = null;
     SupportMapFragment mapFragment;
 
     //    Presense System
@@ -237,6 +240,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         });
 
         setUpLocation();
+        updateFirebaseToken();
 
         tvFull.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -294,6 +298,17 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         buildLocationRequest();
         if (location_switch.isChecked()){
             tb_drivers = FirebaseDatabase.getInstance().getReference(Utils.driver_tbl);
+        }
+    }
+
+    private void updateFirebaseToken() {
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference tokens = db.getReference(Utils.token_tbl);
+
+        Token token = new Token(FirebaseInstanceId.getInstance().getToken());
+        if (FirebaseAuth.getInstance().getCurrentUser() != null){
+            tokens.child(kodeDriver)
+                    .setValue(token);
         }
     }
 
@@ -357,7 +372,9 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                             mCurrentMarker.remove();
                                         }
 
-                                        mMap.clear();
+                                        if(!driverTracking) {
+                                            mMap.clear();
+                                        }
 
                                         mCurrentMarker = mMap.addMarker(new MarkerOptions()
                                                 .position(new LatLng(latitude, longitude))
@@ -365,6 +382,16 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
                                     }
                                 });
+
+                                if (latLngPassangerFound != null) {
+                                    if (driverTracking) {
+                                        if (directionTracking != null) {
+                                            directionTracking.remove();
+                                        }
+
+                                        getDirection(latLngPassangerFound);
+                                    }
+                                }
                             }
                         }else {
                             Log.d("ERROR", "displayLocation: Cannot get your location");
@@ -452,12 +479,8 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
 
             }
         });
-
-        if (directionTracking != null){
-            directionTracking.remove();
-        }
-
-        getDirection(latLngPassanger);
+        latLngPassangerFound = latLngPassanger;
+        driverTracking = true;
     }
 
     private void loadDataPenjemputan(String noHpUser, String idDestinasi) {
@@ -579,6 +602,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()){
+                                                        driverTracking = false;
                                                         sendMessageAngkut(customer, "Angkut", idList);
                                                         Toast.makeText(TrackingActivity.this, "Berhasil menambah penumpang", Toast.LENGTH_SHORT).show();
                                                     }
