@@ -379,6 +379,7 @@ public class KonfirmasiEmailFragment extends Fragment{
                     if (response.body().getValue() == 1){
                         String noHpUser = response.body().getNoHpDriver();
                         String kodeDriver = response.body().getKodeDriver();
+                        Toast.makeText(getActivity(), "Kode driver : "+kodeDriver, Toast.LENGTH_SHORT).show();
                         editor.putString(NOHP_DRIVER_KEY, noHpUser);
                         editor.putString(KODE_DRIVER_KEY, kodeDriver);
                         editor.putBoolean(LOGIN_STATUS, true);
