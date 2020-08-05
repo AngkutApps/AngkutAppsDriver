@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import id.co.myproject.angkutapps.view.HomeFragment;
+import id.co.myproject.angkutapps.view.history.HistoryFragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,15 +26,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.home_nav){
+                    setFragment(new HomeFragment());
 //                    setFragment(new NearbyMapsFragment());
                 }else if (item.getItemId() == R.id.history_nav){
                     setFragment(new HistoryFragment());
-                }else if (item.getItemId() == R.id.payment_nav){
-                    setFragment(new PaymentFragment());
                 }else if (item.getItemId() == R.id.akun_nav){
                     setFragment(new ProfilFragment());
-                }else if (item.getItemId() == R.id.barcode_nav){
-                    setFragment(new BarcodeFragment());
                 }
 
                 return true;

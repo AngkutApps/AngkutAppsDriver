@@ -23,40 +23,36 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHold
         this.context = context;
     }
 
-    public void setRiwayatList(List<Riwayat> riwayatList){
-        this.riwayatList.clear();
-        this.riwayatList.addAll(riwayatList);
-        notifyDataSetChanged();
-    }
-
     @NonNull
     @Override
     public RiwayatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_riwayat, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_hitsory, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RiwayatAdapter.ViewHolder holder, int position) {
-        Riwayat riwayat = riwayatList.get(position);
-        holder.tvHarga.setText(riwayat.getHarga());
-        holder.tvAsal.setText(riwayat.getAsal());
-        holder.tvTujuan.setText(riwayat.getTujuan());
-        holder.tvHari.setText(riwayat.getHari());
-        holder.tvTanggal.setText(riwayat.getTanggal());
+//        Riwayat riwayat = riwayatList.get(position);
+//        holder.tvHarga.setText(riwayat.getHarga());
+//        holder.tvTujuan.setText(riwayat.getTujuan());
+//        holder.tvHari.setText(riwayat.getHari());
+//        holder.tvTanggal.setText(riwayat.getTanggal());
+        holder.tvHarga.setText("Rp. 120K");
+        holder.tvTujuan.setText("Makassar -> Maros");
+        holder.tvHari.setText("Kamis");
+        holder.tvTanggal.setText("20 Juni 1998");
     }
 
     @Override
     public int getItemCount() {
-        return riwayatList.size();
+        return 10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvHarga, tvAsal, tvTujuan, tvHari, tvTanggal;
+        TextView tvHarga, tvTujuan, tvHari, tvTanggal;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvHarga = itemView.findViewById(R.id.tv_harga);
-            tvAsal = itemView.findViewById(R.id.tv_asal);
+            tvHarga = itemView.findViewById(R.id.tv_biaya);
             tvTujuan = itemView.findViewById(R.id.tv_tujuan);
             tvHari = itemView.findViewById(R.id.tv_hari);
             tvTanggal = itemView.findViewById(R.id.tv_tanggal);

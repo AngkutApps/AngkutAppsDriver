@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "1070021869137-4v2782rbs94gsqhc1uiln51s7b64ub2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps",
+            "certificate_hash": "f6110a3012c620a3509877f425438d97288a0bd4"
+          }
+        },
+        {
+          "client_id": "1070021869137-n6m47df8nbrmh9lmgl7t230c384j2th0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps",
+            "certificate_hash": "658b354e93a50e7839f4ad495af12b181b2615a5"
+          }
+        },
+        {
+          "client_id": "1070021869137-6e6n7fkrnj1fmduem1bthdpca43ktc7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps",
+            "certificate_hash": "3f6fe0e101ae8ee79b052134c58af9bc8d274934"
+          }
+        },
+        {
           "client_id": "1070021869137-bf98ansm9hcov6r5ghj9ksp7sft7tt9k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -52,7 +76,31 @@
       },
       "oauth_client": [
         {
-          "client_id": "1070021869137-7j4le5k3jsi3fiqmoe94mch6lv2h3jk0.apps.googleusercontent.com",
+          "client_id": "1070021869137-pueo293tbu7nkfbd7hib5j6ufbd03gu9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "f6110a3012c620a3509877f425438d97288a0bd4"
+          }
+        },
+        {
+          "client_id": "1070021869137-b71brrgkpotqhilt0jsknooksk17irmd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "15ebae3c9cc8cd9f407c300c80d025b1ff6f0c8b"
+          }
+        },
+        {
+          "client_id": "1070021869137-mp8ssbgr2a07si6l4di9a01nabttlteg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "658b354e93a50e7839f4ad495af12b181b2615a5"
+          }
+        },
+        {
+          "client_id": "1070021869137-c6bir91s7mmcvoo8uf2nj0llmvgpvqsk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "id.co.myproject.angkutapps_penumpang",
@@ -60,10 +108,55 @@
           }
         },
         {
+          "client_id": "1070021869137-96rr85d69kd02jgang24bpfoj425qn3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "984744433ecb9a70903807e585a0f94949fb12a4"
+          }
+        },
+        {
           "client_id": "1070021869137-s67kl2me2k3j60pj0uu7vgsgu9upe0fv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "id.co.myproject.angkutapps_penumpang",
+            "certificate_hash": "aa42bdd86626a359918e2fced12ade05269892bf"
+          }
+        },
+        {
+          "client_id": "1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt_JHin4T92dYKlI3e9B0q-byzkS265MM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070021869137:android:4865285f4f777835080270",
+        "android_client_info": {
+          "package_name": "net.trices.smsgateway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070021869137-j4l96nlnmidcb07lrnbc630phcv81e0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.trices.smsgateway",
             "certificate_hash": "aa42bdd86626a359918e2fced12ade05269892bf"
           }
         },
