@@ -1,154 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProfilFragment"
     android:orientation="vertical"
-    android:layout_margin="20dp">
+    tools:context=".ProfilFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RelativeLayout
-            android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@drawable/bg_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Profil"
+            android:textColor="@color/textColorWhite"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:id="@+id/cv_profil">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/iv_user"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/bg_horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                android:text="Amelia Ramadanti"
+                android:textColor="@color/textBlack"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/iv_camera"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:padding="5dp"
-                    android:tint="@android:color/white"
-                    android:background="@drawable/dot_background_payment"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    app:layout_constraintBottom_toBottomOf="@+id/iv_user"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_user" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/cv_profil">
-                <TextView
-                    android:id="@+id/tv_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mantap Djiwa"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
-                <TextView
-                    android:id="@+id/tv_edit_profil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit Profil >"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorAccent"/>
-            </LinearLayout>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="80dp"
-                android:background="@color/colorAccent"
-                android:layout_alignParentRight="true"/>
-        </RelativeLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/iv_transfer"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="0"
-                android:textSize="40sp"
-                android:gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_transfer"
-                android:textSize="15sp"
-                android:text="Points"
-                android:textColor="@color/colorAccent"/>
+                android:layout_gravity="center_horizontal"
+                android:text="0 Points"
+                android:layout_marginBottom="20dp"
+                android:textSize="15sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_hadiah"
+                app:cardElevation="3dp"
+                app:cardCornerRadius="5dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun1"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun1"
+                        android:text="Hadiah"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                android:id="@+id/cv_pusatBantuan"
+                app:cardCornerRadius="5dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun2"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun2"
+                        android:text="Pusat Bantuan"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cv_kontakDarurat"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun3"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun3"
+                        android:text="Kontak Darurat"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cv_pengaturan"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun4"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun4"
+                        android:text="Pengaturan"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cv_bagikanFeedback"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun5"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun5"
+                        android:text="Bagikan Feedback"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                android:id="@+id/cv_beriMasukan"
+                app:cardCornerRadius="5dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun6"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun6"
+                        android:text="Beri Masukan"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cv_FAQ"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun7"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun7"
+                        android:text="FAQ"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="3dp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cv_logOut"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorFormBackground"
+                style="@style/card_view_akun">
+
+                <RelativeLayout
+                    android:padding="10dp"
+                    android:background="@color/textColorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iconAkun8"
+                        android:layout_width="40dp"
+                        android:layout_height="40sp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iconAkun8"
+                        android:text="Log Out"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tv_akun_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Akun info"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_centerVertical="true"/>
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
-        </RelativeLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorAccent"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="5dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tv_saldo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Saldo"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_centerVertical="true"/>
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_keyboard_arrow_right_black_24dp"/>
-        </RelativeLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorAccent"/>
-    </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1070021869137-h8n5t55h5g4jq360vf5q01pu0cg2ef5u.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://angkut-apps-d7392.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1070021869137</string>
+    <string name="google_api_key" translatable="false">AIzaSyCt_JHin4T92dYKlI3e9B0q-byzkS265MM</string>
+    <string name="google_app_id" translatable="false">1:1070021869137:android:b092808628f138b7080270</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCt_JHin4T92dYKlI3e9B0q-byzkS265MM</string>
+    <string name="google_storage_bucket" translatable="false">angkut-apps-d7392.appspot.com</string>
+    <string name="project_id" translatable="false">angkut-apps-d7392</string>
+</resources>
