@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingTop="15dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Masukan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etBeriMasukan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_input"
+            android:hint="Masukan Anda"
+            android:lines="8"
+            android:ems="10"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:gravity="start"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KIRIM"
+            android:layout_marginTop="15dp"
+            android:id="@+id/btnKirim"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:textColor="@color/textColorWhite"
+            android:background="@drawable/bg_btn_save_kontak_darurat"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

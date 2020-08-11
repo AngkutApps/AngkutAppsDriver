@@ -11,6 +11,11 @@
         android:title="History"
         app:showAsAction="always"
         android:iconTint="@color/colorAccent"/>
+    <item android:id="@+id/voucher_nav"
+        android:icon="@drawable/coupon"
+        android:title="Promo"
+        app:showAsAction="always"
+        android:iconTint="@color/colorAccent"/>
     <item android:id="@+id/akun_nav"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="Akun"

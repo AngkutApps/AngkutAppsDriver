@@ -12,7 +12,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import id.co.myproject.angkutapps.R;
-import id.co.myproject.angkutapps.model.Riwayat;
+import id.co.myproject.angkutapps.model.data_access_object.Riwayat;
 
 public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHolder> {
 

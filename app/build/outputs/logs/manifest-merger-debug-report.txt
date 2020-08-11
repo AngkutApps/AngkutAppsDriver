@@ -1,11 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
 MERGED from [com.google.android.material:material:1.3.0-alpha01] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f964470c44bda7c02329d17d0e75e3f7\material-1.3.0-alpha01\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:2:1-23:12
+MERGED from [com.amitshekhar.android:android-networking:1.0.2] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\34768850e6b15de7ef1bededd2f4ab24\jetified-android-networking-1.0.2\AndroidManifest.xml:18:1-27:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\6c5a1a33c151bf1b1b969a4997bc8337\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\eea79921d0082cd3162f25540a57b311\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\130b3e7299d7b916415d9bf24d660e86\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -30,7 +31,7 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\irwan\.gradle\caches\t
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\fc5ce96d0556e9e525188cc47c233aa7\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f08f26b738e536efc3a40e59b9588032\jetified-glide-4.11.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.firebase:geofire-android:2.1.2] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a8c93cd9f1b078b044efe13f616ed127\jetified-geofire-android-2.1.2\AndroidManifest.xml:1:1-5:12
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\8e786bc73f61bd506822737a0bb7f414\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\8a144bf192d6484f4ce6240d7fa27967\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f2ad40b7824eb372f4d8a9636d7e3bf4\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
@@ -41,7 +42,7 @@ MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users
 MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f502367a17f438ff3543a835c206b872\jetified-play-services-tasks-17.1.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\b2250d6351df54d89fb411725865672d\jetified-play-services-stats-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a4ddce84ad54f04bc0ddf2acdb2f05d4\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:17:1-25:12
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\1f4a1332a722473c61f09c9c9fc5c1cc\lifecycle-extensions-2.1.0\AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\33864422152bb0af748686115ae1452a\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\0a5d1ddc01de78a90b6c8d414c9a6e9c\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -81,33 +82,33 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.1.0] C:\Users\irwan\.g
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\ab934f928bf51d43ca6d564e84d9eda0\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a2ae4022237bbaf198d3d05422530051\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\53e0949278eda677ad6f876415ad0546\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\e1402b3dd5cd6e3ad9b642ba52b706b0\jetified-volley-1.1.1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a0721106462bf7a0bb09de92eb729fa3\jetified-volley-1.1.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\ab078fb7568ac501da448e6ef758105a\jetified-transport-api-2.2.0\AndroidManifest.xml:15:1-22:12
-INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
 	package
 		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:3:5-41
 		INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
 		INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:1-61:12
 		INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:10:5-79
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:9:5-79
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:9:5-79
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:9:5-79
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:10:22-76
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:9:22-76
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:11:5-67
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:10:5-67
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\7568ba76e7ca3967850522f169ef779d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
@@ -125,13 +126,13 @@ MERGED from [com.google.firebase:firebase-installations:16.3.2] C:\Users\irwan\.
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\af8b852dc9492850dfd58fa4b08b6b31\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\af8b852dc9492850dfd58fa4b08b6b31\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:26:5-67
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:11:22-64
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:10:22-64
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:12:5-81
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:11:5-81
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:12:22-78
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:14:5-60:19
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:13:5-59:19
 MERGED from [com.google.android.material:material:1.3.0-alpha01] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f964470c44bda7c02329d17d0e75e3f7\material-1.3.0-alpha01\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0-alpha01] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f964470c44bda7c02329d17d0e75e3f7\material-1.3.0-alpha01\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:13:5-21:19
@@ -166,8 +167,8 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\irwan\.gradle\caches\t
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\affe8ffdb9649a6397f7c328329b874e\jetified-circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f08f26b738e536efc3a40e59b9588032\jetified-glide-4.11.0\AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f08f26b738e536efc3a40e59b9588032\jetified-glide-4.11.0\AndroidManifest.xml:10:5-20
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f2ad40b7824eb372f4d8a9636d7e3bf4\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f2ad40b7824eb372f4d8a9636d7e3bf4\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-datatransport:17.0.3] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\d1f75898c761cea33a2c195c10b32583\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:24:5-32:19
@@ -182,8 +183,8 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\irwan\.
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\b2250d6351df54d89fb411725865672d\jetified-play-services-stats-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a4ddce84ad54f04bc0ddf2acdb2f05d4\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a4ddce84ad54f04bc0ddf2acdb2f05d4\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\1f4a1332a722473c61f09c9c9fc5c1cc\lifecycle-extensions-2.1.0\AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\1f4a1332a722473c61f09c9c9fc5c1cc\lifecycle-extensions-2.1.0\AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.core:core:1.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c6f4260131458ccd0b15b1a20cb8065e\core-1.2.0\AndroidManifest.xml:24:5-89
@@ -198,80 +199,84 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ir
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\fef3bcbc3f86e0f441f90d2d23ba3f3b\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\07b19265bd045da9807bee6a1281581a\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\07b19265bd045da9807bee6a1281581a\jetified-lifecycle-process-2.1.0\AndroidManifest.xml:22:5-28:19
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\e1402b3dd5cd6e3ad9b642ba52b706b0\jetified-volley-1.1.1\AndroidManifest.xml:9:5-20
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\e1402b3dd5cd6e3ad9b642ba52b706b0\jetified-volley-1.1.1\AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a0721106462bf7a0bb09de92eb729fa3\jetified-volley-1.1.1\AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a0721106462bf7a0bb09de92eb729fa3\jetified-volley-1.1.1\AndroidManifest.xml:9:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c6f4260131458ccd0b15b1a20cb8065e\core-1.2.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:19:9-35
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:17:9-41
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:16:9-41
 	android:roundIcon
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:18:9-54
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:17:9-54
 	android:icon
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:16:9-43
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:15:9-43
 	android:allowBackup
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:20:9-40
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:19:9-40
 	android:usesCleartextTraffic
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:21:9-44
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:20:9-44
+activity#id.co.myproject.angkutapps.view.profil.KontakDarurat
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:21:9-72
+	android:name
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:21:19-60
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:31:9-33:55
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:30:9-32:55
 	android:value
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:33:13-52
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:32:13-52
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:32:13-58
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:31:13-58
 activity#id.co.myproject.angkutapps.view.TrackingActivity
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:35:9-37:72
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:34:9-36:63
 	android:label
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:37:13-60
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:36:13-60
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:36:13-50
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:35:13-50
 activity#id.co.myproject.angkutapps.view.login.LoginActivity
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:38:9-44:20
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:37:9-43:20
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:38:19-59
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:37:19-59
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:39:13-43:29
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:38:13-42:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:40:17-69
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:39:17-69
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:40:25-66
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:39:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:42:17-77
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:41:17-77
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:42:27-74
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:41:27-74
 activity#id.co.myproject.angkutapps.NearbyMapsFragment
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:45:9-47:66
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:44:9-46:66
 	android:label
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:47:13-63
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:46:13-63
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:46:13-47
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:45:13-47
 activity#id.co.myproject.angkutapps.MainActivity
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:48:9-50
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:47:9-50
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:48:19-47
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:47:19-47
 service#id.co.myproject.angkutapps.service.MyFirebaseIdService
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:50:9-54:19
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:49:9-53:19
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:50:18-61
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:49:18-61
 intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:51:13-53:29
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:50:13-52:29
 action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:52:17-80
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:51:17-80
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:52:25-77
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:51:25-77
 service#id.co.myproject.angkutapps.service.MyFirebaseMessaging
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:55:9-59:19
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:54:9-58:19
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:55:18-61
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:54:18-61
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:56:13-58:29
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:55:13-57:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:57:17-78
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:56:17-78
 	android:name
-		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:57:25-75
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:56:25-75
 uses-sdk
 INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
@@ -280,6 +285,8 @@ MERGED from [com.google.android.material:material:1.3.0-alpha01] C:\Users\irwan\
 MERGED from [com.google.android.material:material:1.3.0-alpha01] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f964470c44bda7c02329d17d0e75e3f7\material-1.3.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:7:5-44
 MERGED from [com.google.android.libraries.places:places:2.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\27dee90ef62e5f04ec595f434015f17d\jetified-places-2.3.0\AndroidManifest.xml:7:5-44
+MERGED from [com.amitshekhar.android:android-networking:1.0.2] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\34768850e6b15de7ef1bededd2f4ab24\jetified-android-networking-1.0.2\AndroidManifest.xml:23:5-25:41
+MERGED from [com.amitshekhar.android:android-networking:1.0.2] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\34768850e6b15de7ef1bededd2f4ab24\jetified-android-networking-1.0.2\AndroidManifest.xml:23:5-25:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\6c5a1a33c151bf1b1b969a4997bc8337\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\6c5a1a33c151bf1b1b969a4997bc8337\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\eea79921d0082cd3162f25540a57b311\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
@@ -328,8 +335,8 @@ MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\irwan\.gradle\cach
 MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f08f26b738e536efc3a40e59b9588032\jetified-glide-4.11.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.firebase:geofire-android:2.1.2] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a8c93cd9f1b078b044efe13f616ed127\jetified-geofire-android-2.1.2\AndroidManifest.xml:2:3-70
 MERGED from [com.firebase:geofire-android:2.1.2] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a8c93cd9f1b078b044efe13f616ed127\jetified-geofire-android-2.1.2\AndroidManifest.xml:2:3-70
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
-MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\8e786bc73f61bd506822737a0bb7f414\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\8e786bc73f61bd506822737a0bb7f414\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\8a144bf192d6484f4ce6240d7fa27967\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
@@ -350,8 +357,8 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\irwan\.
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\b2250d6351df54d89fb411725865672d\jetified-play-services-stats-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a4ddce84ad54f04bc0ddf2acdb2f05d4\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a4ddce84ad54f04bc0ddf2acdb2f05d4\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\1f4a1332a722473c61f09c9c9fc5c1cc\lifecycle-extensions-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\1f4a1332a722473c61f09c9c9fc5c1cc\lifecycle-extensions-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\33864422152bb0af748686115ae1452a\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -430,8 +437,8 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\irwan\.gradle\caches
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a2ae4022237bbaf198d3d05422530051\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\53e0949278eda677ad6f876415ad0546\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\53e0949278eda677ad6f876415ad0546\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\e1402b3dd5cd6e3ad9b642ba52b706b0\jetified-volley-1.1.1\AndroidManifest.xml:7:5-43
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\e1402b3dd5cd6e3ad9b642ba52b706b0\jetified-volley-1.1.1\AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a0721106462bf7a0bb09de92eb729fa3\jetified-volley-1.1.1\AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\a0721106462bf7a0bb09de92eb729fa3\jetified-volley-1.1.1\AndroidManifest.xml:7:5-43
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\ab078fb7568ac501da448e6ef758105a\jetified-transport-api-2.2.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\ab078fb7568ac501da448e6ef758105a\jetified-transport-api-2.2.0\AndroidManifest.xml:18:5-20:41
 INJECTED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml
@@ -615,13 +622,13 @@ ADDED from [com.google.android.gms:play-services-base:17.3.0] C:\Users\irwan\.gr
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c7e61994e0442db7641a5cc4d7f9f928\jetified-play-services-base-17.3.0\AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\f68598ef96dea13048b0fe9e4176587f\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\c12f6955343f3ed8452b864ec63e158c\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:10:13-66
+		ADDED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:10:13-66
 	android:name
-		ADDED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\9d9feb414f9f6dab34f158b7cbfd7a59\jetified-android-maps-utils-0.5\AndroidManifest.xml:9:13-58
+		ADDED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\565904ee69fa0360a34992995de71511\jetified-android-maps-utils-0.5\AndroidManifest.xml:9:13-58
 meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
 ADDED from [com.google.firebase:firebase-datatransport:17.0.3] C:\Users\irwan\.gradle\caches\transforms-2\files-2.1\d1f75898c761cea33a2c195c10b32583\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:28:13-30:85
 	android:value

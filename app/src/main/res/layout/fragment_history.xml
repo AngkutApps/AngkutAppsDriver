@@ -45,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColorWhite"
                 android:gravity="center_horizontal"
-                android:padding="8dp"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
                 android:background="@color/colorPrimary"
                 android:layout_toLeftOf="@+id/line"
                 android:layout_alignParentLeft="true"
@@ -69,7 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:padding="8dp"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
                 android:textColor="@color/colorPrimary"
                 android:text="Voucher" />
 

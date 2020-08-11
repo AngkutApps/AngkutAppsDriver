@@ -4,14 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +12,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import id.co.myproject.angkutapps.R;
-import id.co.myproject.angkutapps.model.Destinasi;
+import id.co.myproject.angkutapps.model.data_access_object.Destinasi;
 
 public class PerjalananAdapter extends RecyclerView.Adapter<PerjalananAdapter.ViewHolder> {
     List<Destinasi> destinasiList = new ArrayList<>();

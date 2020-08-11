@@ -24,7 +24,7 @@ import androidx.fragment.app.FragmentTransaction;
 import id.co.myproject.angkutapps.MainActivity;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.helper.Utils;
-import id.co.myproject.angkutapps.model.Value;
+import id.co.myproject.angkutapps.model.data_access_object.Value;
 import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
 import retrofit2.Call;

@@ -2,12 +2,12 @@ package id.co.myproject.angkutapps.request;
 
 import java.util.List;
 
-import id.co.myproject.angkutapps.model.FCMResponse;
-import id.co.myproject.angkutapps.model.JenisKendaraan;
-import id.co.myproject.angkutapps.model.Penjemputan;
-import id.co.myproject.angkutapps.model.Penumpang;
-import id.co.myproject.angkutapps.model.Driver;
-import id.co.myproject.angkutapps.model.Value;
+import id.co.myproject.angkutapps.model.data_access_object.FCMResponse;
+import id.co.myproject.angkutapps.model.data_access_object.JenisKendaraan;
+import id.co.myproject.angkutapps.model.data_access_object.Penjemputan;
+import id.co.myproject.angkutapps.model.data_access_object.Penumpang;
+import id.co.myproject.angkutapps.model.data_access_object.Driver;
+import id.co.myproject.angkutapps.model.data_access_object.Value;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;

@@ -19,7 +19,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import id.co.myproject.angkutapps.R;
-import id.co.myproject.angkutapps.model.Destinasi;
+import id.co.myproject.angkutapps.model.data_access_object.Destinasi;
 
 public class DestinasiAdapter extends RecyclerView.Adapter<DestinasiAdapter.ViewHolder> {
     List<Destinasi> destinasiList = new ArrayList<>();

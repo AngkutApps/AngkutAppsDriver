@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import id.co.myproject.angkutapps.view.HomeFragment;
 import id.co.myproject.angkutapps.view.history.HistoryFragment;
+import id.co.myproject.angkutapps.view.profil.ProfilFragment;
+import id.co.myproject.angkutapps.view.promo.PromoFragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 //                    setFragment(new NearbyMapsFragment());
                 }else if (item.getItemId() == R.id.history_nav){
                     setFragment(new HistoryFragment());
+                }else if (item.getItemId() == R.id.voucher_nav){
+                    setFragment(new PromoFragment());
                 }else if (item.getItemId() == R.id.akun_nav){
                     setFragment(new ProfilFragment());
                 }

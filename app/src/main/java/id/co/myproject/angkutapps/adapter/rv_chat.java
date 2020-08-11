@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import id.co.myproject.angkutapps.model.Chat;
+import id.co.myproject.angkutapps.model.data_access_object.Chat;
 import id.co.myproject.angkutapps.R;
 
 public class rv_chat extends RecyclerView.Adapter<rv_chat.ViewHolder> {

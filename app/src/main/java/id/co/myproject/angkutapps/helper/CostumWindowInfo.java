@@ -3,7 +3,6 @@ package id.co.myproject.angkutapps.helper;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +10,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 
 import id.co.myproject.angkutapps.R;
-import id.co.myproject.angkutapps.model.Penumpang;
 
 public class CostumWindowInfo implements GoogleMap.InfoWindowAdapter {
 

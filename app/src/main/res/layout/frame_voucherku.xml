@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textColorWhite"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <View
+            android:id="@+id/line_warna"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/layout"
+            android:layout_alignBottom="@id/layout"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary" />
+
+        <RelativeLayout
+            android:layout_toRightOf="@id/line_warna"
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            >
+
+            <View
+                android:id="@+id/img_status"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignTop="@+id/tv_tujuan"
+                android:layout_alignBottom="@+id/tv_tanggal"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:ellipsize="none"
+                android:layout_marginRight="5dp"
+                android:id="@+id/tv_tujuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_status"
+                android:text="Nikmati Promo Hingga Tembus Pagi Sampai Capek"
+                android:layout_toLeftOf="@+id/show_detail"
+                android:textColor="@color/textBlack"
+                android:maxLines="2" />
+
+            <TextView
+                android:id="@+id/tv_tanggal"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_tujuan"
+                android:layout_toRightOf="@id/img_status"
+                android:text="Berlaku s/d 06 Desember 2025" />
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_alignBottom="@+id/tv_tanggal"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_tujuan"
+                android:layout_marginRight="5dp"
+                android:text="s/k berlaku" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

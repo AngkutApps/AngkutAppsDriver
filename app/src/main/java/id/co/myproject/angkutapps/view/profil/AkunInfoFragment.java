@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import id.co.myproject.angkutapps.BuildConfig;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.helper.Utils;
-import id.co.myproject.angkutapps.model.Driver;
+import id.co.myproject.angkutapps.model.data_access_object.Driver;
 import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
 import retrofit2.Call;

@@ -31,7 +31,7 @@ import java.util.Map;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.adapter.rv_chat;
 import id.co.myproject.angkutapps.helper.Utils;
-import id.co.myproject.angkutapps.model.Chat;
+import id.co.myproject.angkutapps.model.data_access_object.Chat;
 
 public class Df_chat extends DialogFragment {
 

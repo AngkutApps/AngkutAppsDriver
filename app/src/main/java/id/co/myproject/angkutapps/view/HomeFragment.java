@@ -1,6 +1,7 @@
 package id.co.myproject.angkutapps.view;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -70,11 +71,12 @@ import java.util.Map;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.adapter.DestinasiAdapter;
 import id.co.myproject.angkutapps.helper.Utils;
-import id.co.myproject.angkutapps.model.Destinasi;
-import id.co.myproject.angkutapps.model.Token;
+import id.co.myproject.angkutapps.model.data_access_object.Destinasi;
+import id.co.myproject.angkutapps.model.data_access_object.Token;
 
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -149,7 +151,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         buildLocationCallback();
         buildLocationRequest();
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
@@ -167,7 +169,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         dbDriver.updateChildren(updateStatus).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     setUpLocation();
                     updateFirebaseToken();
                 }
@@ -209,16 +211,16 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
+                                    if (task.isSuccessful()) {
                                         loadDestinasi();
-                                    }else {
-                                        Toast.makeText(getActivity(), ""+task.getException(), Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getActivity(), "" + task.getException(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 } catch (IOException e) {
@@ -228,7 +230,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
             @Override
             public void onError(@NonNull Status status) {
-                Toast.makeText(getActivity(), ""+status.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "" + status.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -255,13 +257,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
-    private void loadDestinasi(){
+    private void loadDestinasi() {
         tb_destinasi_driver.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
                     List<Destinasi> destinasiList = new ArrayList<>();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Destinasi destinasi = snapshot.getValue(Destinasi.class);
                         destinasiList.add(destinasi);
                     }
@@ -279,9 +281,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        switch (requestCode) {
             case MY_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     buildLocationCallback();
                     buildLocationRequest();
                     displayLocation();
@@ -291,12 +293,12 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private void setUpLocation() {
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
             }, MY_PERMISSION_REQUEST_CODE);
-        }else {
+        } else {
             buildLocationCallback();
             buildLocationRequest();
             tb_drivers = FirebaseDatabase.getInstance().getReference(Utils.driver_tbl);
@@ -308,7 +310,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         DatabaseReference tokens = db.getReference(Utils.token_tbl);
 
         Token token = new Token(FirebaseInstanceId.getInstance().getToken());
-        if (FirebaseAuth.getInstance().getCurrentUser() != null){
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             tokens.child(kodeDriver)
                     .setValue(token);
         }
@@ -323,10 +325,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void buildLocationCallback() {
-        locationCallback = new LocationCallback(){
+        locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
-                for (Location location : locationResult.getLocations()){
+                for (Location location : locationResult.getLocations()) {
                     Utils.mLastLocation = location;
                 }
                 displayLocation();
@@ -335,18 +337,28 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void displayLocation() {
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-        return;
-        }
+//        if (ActivityCompat.checkSelfPermission((Activity)getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+//            ActivityCompat.checkSelfPermission((Activity)getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+//        return;
+//        }
 
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         fusedLocationProviderClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
                         Utils.mLastLocation = location;
 
-                        if (Utils.mLastLocation != null){
+                        if (Utils.mLastLocation != null) {
                             final double latitude = Utils.mLastLocation.getLatitude();
                             final double longitude = Utils.mLastLocation.getLongitude();
 
@@ -365,7 +377,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                             geoFire.setLocation(kodeDriver, new GeoLocation(latitude, longitude), new GeoFire.CompletionListener() {
                                 @Override
                                 public void onComplete(String key, DatabaseError error) {
-                                    if (mCurrentMarker != null){
+                                    if (mCurrentMarker != null) {
                                         mCurrentMarker.remove();
                                     }
 
@@ -375,7 +387,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
                                 }
                             });
-                        }else {
+                        } else {
                             Log.d("ERROR", "displayLocation: Cannot get your location");
                         }
                     }
