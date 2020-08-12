@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface ApiPromo {
 
-    @GET("read_promo_beli_voucher.php")
+    @GET("read_promo_beli_voucher_driver.php")
     Call<List<LoadVoucher>> getPromoBeliVoucher(
 //            @Query("no_hp") String no_hp
     );
@@ -20,7 +20,7 @@ public interface ApiPromo {
             @Query("kode_voucher") String kode_voucher
     );
 //
-    @GET("read_promo_voucherku.php")
+    @GET("read_promo_voucherku_driver.php")
     Call<List<LoadVoucher>> getPromoVoucherku(
             @Query("no_hp") String no_hp
     );
