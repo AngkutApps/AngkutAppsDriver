@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +32,11 @@ public class rv_voucherku_adapter extends RecyclerView.Adapter<rv_voucherku_adap
 
     @Override
     public void onBindViewHolder(@NonNull rv_voucherku_adapter.ViewHolder holder, int position) {
+        String[] masaBerlaku = String.valueOf(loadVouchers.get(position).getMasa_berlaku()).split(" ");
+        String masa_berlaku = masaBerlaku[0];
 
+        holder.tv_title.setText(loadVouchers.get(position).getNama_voucher());
+        holder.tv_masa_berlaku.setText("Berlaku s/d "+masa_berlaku);
     }
 
     @Override
@@ -40,8 +45,15 @@ public class rv_voucherku_adapter extends RecyclerView.Adapter<rv_voucherku_adap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView tv_title, tv_masa_berlaku;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            tv_title = itemView.findViewById(R.id.tv_tujuan);
+            tv_masa_berlaku = itemView.findViewById(R.id.tv_tanggal);
+
         }
     }
 }

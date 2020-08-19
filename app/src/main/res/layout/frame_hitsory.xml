@@ -8,6 +8,8 @@
     android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
     app:cardCornerRadius="6dp"
+    android:id="@+id/cv_riwayat"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardElevation="3dp">
 
     <RelativeLayout
@@ -98,6 +100,7 @@
             <ImageView
                 android:id="@+id/show_detail"
                 android:layout_width="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="5dp"

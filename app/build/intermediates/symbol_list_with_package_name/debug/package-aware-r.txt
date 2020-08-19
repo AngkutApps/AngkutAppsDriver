@@ -2156,9 +2156,11 @@ id cv_hadiah
 id cv_kontakDarurat
 id cv_logOut
 id cv_pengaturan
+id cv_penggunaan
 id cv_perjalanan
 id cv_profil
 id cv_pusatBantuan
+id cv_riwayat
 id dark
 id date_picker_actions
 id decor_content_parent
@@ -2391,6 +2393,7 @@ id places_autocomplete_search_input
 id places_autocomplete_separator
 id places_autocomplete_try_again
 id places_autocomplete_try_again_progress
+id popup_hapus
 id progres
 id progress_circular
 id progress_horizontal
@@ -2549,6 +2552,7 @@ id tv_plat
 id tv_registrasi
 id tv_reset_password_go_back
 id tv_riwayat
+id tv_sdank
 id tv_selesai
 id tv_tanggal
 id tv_tujuan
@@ -2771,6 +2775,7 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu main_bottom_nav
+menu popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description

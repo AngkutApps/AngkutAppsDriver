@@ -2,10 +2,16 @@ package id.co.myproject.angkutapps.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -31,6 +37,41 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        String[] tglBerangkat = String.valueOf(listPerjalanan.get(position).getTgl_berangkat()).split(" ");
+        String tgl_berangkat = tglBerangkat[0];
+
+
+        holder.tv_tujuan.setText(listPerjalanan.get(position).getDari()+" -> "+listPerjalanan.get(position).getTujuan());
+        holder.tv_hari.setText(listPerjalanan.get(position).getHari_keberangkatan());
+        holder.tv_tanggal.setText(tgl_berangkat);
+        if (String.valueOf(listPerjalanan.get(position).getBiaya()).length()==7){
+            holder.tv_biaya.setText("Rp. "+String.valueOf(listPerjalanan.get(position).getBiaya()).substring(0, 4)+"k");
+        }else if (String.valueOf(listPerjalanan.get(position).getBiaya()).length()==6){
+            holder.tv_biaya.setText("Rp. "+String.valueOf(listPerjalanan.get(position).getBiaya()).substring(0, 3)+"k");
+        }else if (String.valueOf(listPerjalanan.get(position).getBiaya()).length()==5){
+            holder.tv_biaya.setText("Rp. "+String.valueOf(listPerjalanan.get(position).getBiaya()).substring(0, 2)+"k");
+        }else if (String.valueOf(listPerjalanan.get(position).getBiaya()).length()==4){
+            holder.tv_biaya.setText("Rp. "+String.valueOf(listPerjalanan.get(position).getBiaya()).substring(0, 1)+"k");
+        }
+        holder.cv_riwayat.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                popupmenu(v, listPerjalanan.get(position).getId_destinasi());
+                return false;
+            }
+        });
+        holder.cv_riwayat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        holder.btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, ""+listPerjalanan.get(position).getId_destinasi(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -40,8 +81,36 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
     }
 
     public class ViewHolder  extends  RecyclerView.ViewHolder{
+
+        TextView tv_tujuan, tv_hari, tv_tanggal, tv_biaya;
+        ImageView btn_delete;
+        CardView cv_riwayat;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            tv_tujuan = itemView.findViewById(R.id.tv_tujuan);
+            tv_hari = itemView.findViewById(R.id.tv_hari);
+            tv_tanggal = itemView.findViewById(R.id.tv_tanggal);
+            tv_biaya = itemView.findViewById(R.id.tv_biaya);
+            btn_delete = itemView.findViewById(R.id.show_detail);
+            cv_riwayat = itemView.findViewById(R.id.cv_riwayat);
+
         }
     }
+
+    private void popupmenu(View v, int getId){
+        PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
+        popupMenu.inflate(R.menu.popup_menu);
+//        id = getId;
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(context, ""+getId, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        popupMenu.show();
+    }
+
 }
