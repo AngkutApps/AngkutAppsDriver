@@ -20,6 +20,7 @@ import id.co.myproject.angkutapps.model.data_access_object.Destinasi;
 import id.co.myproject.angkutapps.model.data_access_object.DestinasiPassenger;
 import id.co.myproject.angkutapps.model.FCMClient;
 import id.co.myproject.angkutapps.model.data_access_object.FCMResponse;
+import id.co.myproject.angkutapps.model.data_access_object.ListPassager;
 import id.co.myproject.angkutapps.model.data_access_object.Passenger;
 import id.co.myproject.angkutapps.model.data_access_object.Token;
 import id.co.myproject.angkutapps.request.ApiRequest;
@@ -39,7 +40,10 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -63,6 +67,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -70,6 +75,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -86,18 +92,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static id.co.myproject.angkutapps.view.HomeFragment.MY_PERMISSION_REQUEST_CODE;
 
 public class TrackingActivity extends FragmentActivity implements OnMapReadyCallback, OrderListener {
+
+    private static final String TAG = "TrackingActivity";
 
     private GoogleMap mMap;
     public static final int UPDATE_INTERVAL = 0;
@@ -123,19 +134,21 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
     ImageView imgButtonChat;
 
     private String destination;
+    List<ListPassager> listPassagers;
     DatabaseReference tb_drivers, tb_destinasi_driver;
     GeoFire geoFire;
 
-
-    Marker mCurrentMarker;
+    Marker mCurrentMarker, markerSpesifik,markerKabupaten;
     Circle passengerMarker;
     Switch location_switch;
-    boolean driverTracking = false;
+    boolean driverTracking = false, startTripDriver = false;
     LatLng latLngPassangerFound = null;
     SupportMapFragment mapFragment;
 
     //    Presense System
     DatabaseReference onlineRef, currentUserRef;
+
+    Map<LatLng, String> mapJarak = new HashMap<>();
 
     private BroadcastReceiver mOrderReceiver = new BroadcastReceiver() {
         @Override
@@ -254,6 +267,8 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                         if (task.isSuccessful()){
                             tvFull.setVisibility(View.GONE);
                             Toast.makeText(TrackingActivity.this, "Mobil anda telah penuh", Toast.LENGTH_SHORT).show();
+                            startTripDriver = true;
+                            displayLocation();
                         }else {
                             Toast.makeText(TrackingActivity.this, "Gagal penuh", Toast.LENGTH_SHORT).show();
                         }
@@ -268,6 +283,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     protected void onStart() {
         super.onStart();
+
         LocalBroadcastManager.getInstance(this)
                 .registerReceiver(mOrderReceiver, new IntentFilter(Utils.ORDER__RECEIVER));
     }
@@ -364,33 +380,36 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                 final double latitude = Utils.mLastLocation.getLatitude();
                                 final double longitude = Utils.mLastLocation.getLongitude();
 
+                                if (!startTripDriver) {
 
-                                geoFire.setLocation(kodeDriver, new GeoLocation(latitude, longitude), new GeoFire.CompletionListener() {
-                                    @Override
-                                    public void onComplete(String key, DatabaseError error) {
-                                        if (mCurrentMarker != null){
-                                            mCurrentMarker.remove();
+                                    geoFire.setLocation(kodeDriver, new GeoLocation(latitude, longitude), new GeoFire.CompletionListener() {
+                                        @Override
+                                        public void onComplete(String key, DatabaseError error) {
+                                            if (mCurrentMarker != null) {
+                                                mCurrentMarker.remove();
+                                            }
+
+                                            if (!driverTracking) {
+                                                mMap.clear();
+                                            }
+
+                                            mCurrentMarker = mMap.addMarker(new MarkerOptions()
+                                                    .position(new LatLng(latitude, longitude))
+                                                    .title("Your location"));
+                                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
                                         }
+                                    });
+                                    if (latLngPassangerFound != null) {
+                                        if (driverTracking) {
+                                            if (directionTracking != null) {
+                                                directionTracking.remove();
+                                            }
 
-                                        if(!driverTracking) {
-                                            mMap.clear();
+                                            getDirection(latLngPassangerFound);
                                         }
-
-                                        mCurrentMarker = mMap.addMarker(new MarkerOptions()
-                                                .position(new LatLng(latitude, longitude))
-                                                .title("Your location"));
-                                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
                                     }
-                                });
-
-                                if (latLngPassangerFound != null) {
-                                    if (driverTracking) {
-                                        if (directionTracking != null) {
-                                            directionTracking.remove();
-                                        }
-
-                                        getDirection(latLngPassangerFound);
-                                    }
+                                }else {
+                                    loadDestinasi();
                                 }
                             }
                         }else {
@@ -400,6 +419,230 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                 });
     }
 
+    private void loadDestinasi() {
+        Map<Location, Marker> markerKabupatenMap = new HashMap<>();
+        List<Location> addresseKabupaten = new ArrayList<>();
+
+        mMap.clear();
+
+        mCurrentMarker = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(Utils.mLastLocation.getLatitude(), Utils.mLastLocation.getLongitude()))
+                .title("Your location"));
+
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        builder.include(new LatLng(Utils.mLastLocation.getLatitude(), Utils.mLastLocation.getLongitude()));
+
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference(Utils.destination_tbl);
+        db.child(kodeDriver).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String city, city2 = "";
+                for (DataSnapshot postSnapshot : snapshot.getChildren()){
+                    Destinasi destinasi = postSnapshot.getValue(Destinasi.class);
+                    city = destinasi.getCity();
+
+                    Address location = getLatLngFromAddress(destinasi.getAddress());
+
+//                        builder.include(new LatLng(location.getLatitude(), location.getLongitude()));
+//                        LatLngBounds bounds = builder.build();
+
+                    markerKabupaten = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(location.getLatitude(), location.getLongitude()))
+                            .title("Your Destination"));
+
+                    Location temp = new Location(LocationManager.GPS_PROVIDER);
+                    temp.setLatitude(location.getLatitude());
+                    temp.setLongitude(location.getLongitude());
+
+                    markerKabupatenMap.put(temp, markerKabupaten);
+                    addresseKabupaten.add(temp);
+
+//                        int width = getResources().getDisplayMetrics().widthPixels;
+//                        int height = getResources().getDisplayMetrics().heightPixels;
+//                        int padding = (int) (Math.min(width, height)*0.2);
+////                                                int padding = 500; // offset from edges of the map in pixels
+//                        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding);
+//
+//                        mMap.moveCamera(cu);
+//                        mMap.animateCamera(cu);
+
+                    tripRadius(location, city);
+
+//                    city2 = destinasi.getCity();
+                }
+                if(addresseKabupaten.contains(Utils.mLastLocation)){
+                    Marker marker = markerKabupatenMap.get(Utils.mLastLocation);
+                    marker.remove();
+                    markerKabupatenMap.remove(Utils.mLastLocation);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void urutanMarker(LatLng lokasi, String jarak){
+        mapJarak.put(lokasi, jarak);
+    }
+
+    private void getJarak(LatLng titikAwal, LatLng titikTujuan){
+        String requestApi = "";
+        requestApi = "https://maps.googleapis.com/maps/api/directions/json?"+
+                "mode=driving&"+
+                "transit_routing_preference=less_driving&"+
+                "origin="+titikAwal.latitude+","+titikAwal.longitude+"&"+
+                "destination="+titikTujuan.latitude+","+titikTujuan.longitude+"&"+
+                "key="+getResources().getString(R.string.google_direction_api);
+        apiRequest.getPath(requestApi).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(response.body());
+                        JSONArray routes = jsonObject.getJSONArray("routes");
+                        JSONObject object = routes.getJSONObject(0);
+                        JSONArray legs = object.getJSONArray("legs");
+                        JSONObject objectLegs = legs.getJSONObject(0);
+
+                        JSONObject distance = objectLegs.getJSONObject("distance");
+                        String distanceText = distance.getString("text");
+
+                        urutanMarker(titikTujuan, distanceText);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private Address getLatLngFromAddress(String address){
+        List<Address> addresses;
+        Address location;
+        Geocoder geocoder;
+        geocoder = new Geocoder(TrackingActivity.this, Locale.getDefault());
+        try {
+            addresses = geocoder.getFromLocationName(address, 1);
+            location = addresses.get(0);
+
+            return location;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+
+    }
+
+
+    private void tripRadius(Address location, String city) {
+        GeoFire geoMarker;
+        geoMarker = new GeoFire(FirebaseDatabase.getInstance().getReference(Utils.driver_tbl));
+        GeoQuery geoQuery = geoMarker.queryAtLocation(new GeoLocation(location.getLatitude(), location.getLongitude()), 0.05f);
+        geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+            @Override
+            public void onKeyEntered(String key, GeoLocation location) {
+                mMap.clear();
+
+                DatabaseReference dbPassager = FirebaseDatabase.getInstance().getReference(Utils.list_passenger_tbl);
+                dbPassager.child(kodeDriver).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            String hpUser = "";
+                            for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                                ListPassager listPassager = postSnapshot.getValue(ListPassager.class);
+                                if (!hpUser.equals(listPassager.getNo_hp_user())) {
+                                    hpUser = listPassager.getNo_hp_user();
+                                    DatabaseReference db = FirebaseDatabase.getInstance().getReference(Utils.passenger_destination_tbl);
+                                    db.child(listPassager.getNo_hp_user()).orderByChild("city").equalTo(city).addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            List<Location> addresseTujuan = new ArrayList<>();
+                                            Map<Location, Marker> markerDestinasiMap = new HashMap<>();
+                                            for(DataSnapshot postSnapshot : snapshot.getChildren()) {
+                                                Destinasi destinasi = postSnapshot.getValue(Destinasi.class);
+
+                                                Address location = getLatLngFromAddress(destinasi.getAddress());
+                                                markerSpesifik = mMap.addMarker(new MarkerOptions()
+                                                        .position(new LatLng(location.getLatitude(), location.getLongitude()))
+                                                        .title("Your Destination"));
+
+                                                Location temp = new Location(LocationManager.GPS_PROVIDER);
+                                                temp.setLatitude(location.getLatitude());
+                                                temp.setLongitude(location.getLongitude());
+
+                                                markerDestinasiMap.put(temp, markerSpesifik);
+
+                                                addresseTujuan.add(temp);
+
+                                            }
+
+                                            if(addresseTujuan.contains(Utils.mLastLocation)){
+                                                Marker marker = markerDestinasiMap.get(Utils.mLastLocation);
+                                                marker.remove();
+                                                markerDestinasiMap.remove(Utils.mLastLocation);
+                                            }
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+
+                                }
+                            }
+                        }else {
+                            Toast.makeText(TrackingActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(TrackingActivity.this, ""+error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+
+            @Override
+            public void onKeyExited(String key) {
+
+            }
+
+            @Override
+            public void onKeyMoved(String key, GeoLocation location) {
+
+            }
+
+            @Override
+            public void onGeoQueryReady() {
+
+            }
+
+            @Override
+            public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+
+    }
 
 
     /**
@@ -506,12 +749,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                         tvJumlahBarang.setText(destinasiPassenger.getJumlahBarang());
                                         lvPenjemputan.setVisibility(View.VISIBLE);
                                         progressDialog.dismiss();
-                                        imgButtonChat.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                setFragment(new Df_chat(noHpUser));
-                                            }
-                                        });
+                                        imgButtonChat.setOnClickListener(v -> setFragment(new Df_chat(noHpUser)));
                                     }else {
                                         Toast.makeText(TrackingActivity.this, "Gagal tampil jemput", Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();

@@ -1,8 +1,12 @@
 package id.co.myproject.angkutapps.model.data_access_object;
 
+import java.util.List;
+
 public class DestinasiPassenger {
     private String address, biaya, city, fromLocation, idDestinasi, jumlahBarang;
     private JumlahOrang jumlahOrang;
+
+    private List<ListPassager> listPassagers;
 
     public DestinasiPassenger() {
     }
@@ -61,5 +65,13 @@ public class DestinasiPassenger {
 
     public void setJumlahOrang(JumlahOrang jumlahOrang) {
         this.jumlahOrang = jumlahOrang;
+    }
+
+    public List<ListPassager> getListPassagers() {
+        return listPassagers;
+    }
+
+    public void setListPassagers(List<ListPassager> listPassagers) {
+        this.listPassagers = listPassagers;
     }
 }
