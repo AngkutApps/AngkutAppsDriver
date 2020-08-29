@@ -227,6 +227,10 @@ ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\An
 		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:32:13-52
 	android:name
 		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:31:13-58
+activity#id.co.myproject.angkutapps.view.profil.ProfilUser
+ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:33:9-60
+	android:name
+		ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:33:19-57
 activity#id.co.myproject.angkutapps.view.TrackingActivity
 ADDED from C:\Users\irwan\AndroidStudioProjects\AngkutAppsDriver\app\src\main\AndroidManifest.xml:34:9-36:63
 	android:label

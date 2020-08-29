@@ -2098,6 +2098,8 @@ id blocking
 id bottom
 id bottom_nav
 id btnBeliVoucher
+id btnFeedbackNo
+id btnFeedbackYes
 id btnKirim
 id btnPembelianVoucher
 id btnPenggunaanVoucher
@@ -2112,12 +2114,14 @@ id btn_masuk
 id btn_mulai_perjalanan
 id btn_perjalanan
 id btn_reset_password
+id btn_save
 id btn_sign_in
 id btn_sign_up
 id btn_telepon
 id btn_terima
 id btn_update
 id buttonPanel
+id button_back
 id cancel_action
 id cancel_button
 id carView_pesan
@@ -2134,6 +2138,7 @@ id chip3
 id chip_group
 id chronometer
 id circular
+id cl_profil
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2222,6 +2227,7 @@ id forgot_password_email_container
 id forgot_password_email_icon
 id forgot_password_email_text
 id forgot_password_progress
+id frameHeader
 id frameOTP
 id frame_home
 id frame_login
@@ -2257,6 +2263,7 @@ id imgButtonSend
 id imgClose
 id imgKonfirmasiEmail
 id img_back
+id img_profil
 id img_status
 id incoming
 id info
@@ -2280,6 +2287,7 @@ id labeled
 id largeLabel
 id layout
 id layoutFrame
+id layoutInfoUser
 id left
 id light
 id line
@@ -2642,11 +2650,13 @@ layout abc_tooltip
 layout activity_kontak_darurat
 layout activity_login
 layout activity_main
+layout activity_profil_user
 layout activity_tracking
 layout akun_card_list
 layout amu_info_window
 layout amu_text_bubble
 layout amu_webview
+layout bottom_sheets_bagikan_feedback
 layout custom_dialog
 layout custom_rider_info_window
 layout design_bottom_navigation_item
