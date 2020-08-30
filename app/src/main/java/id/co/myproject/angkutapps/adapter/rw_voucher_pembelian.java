@@ -14,6 +14,11 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -21,6 +26,7 @@ import com.androidnetworking.AndroidNetworking;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.model.crud_table.tb_rw_pembelian_voucher_driver;
 import id.co.myproject.angkutapps.model.data_access_object.LoadVoucher;
+import id.co.myproject.angkutapps.view.history.dialog_fragment.Df_voucher_pembelian;
 
 public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembelian.ViewHolder> {
 
@@ -46,6 +52,9 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
         String[] pembelian = String.valueOf(listVoucher.get(position).getTgl_pembelian()).split(" ");
         String tgl_pembelian = pembelian[0];
 
+        String[] masa_berlaku = String.valueOf(listVoucher.get(position).getMasa_berlaku()).split(" ");
+        String tgl_masa_berlaku = masa_berlaku[0];
+
         if (String.valueOf(listVoucher.get(position).getHarga()).length()==5){
             holder.tv_harga.setText("Rp. "+String.valueOf(listVoucher.get(position).getHarga()).substring(0, 2)+"k");
         }else if (String.valueOf(listVoucher.get(position).getHarga()).length()==4){
@@ -59,6 +68,12 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
             public boolean onLongClick(View v) {
                 popupmenu(v, listVoucher.get(position).getId_pembelian_voucher());
                 return false;
+            }
+        });
+        holder.cv_riwayat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new Df_voucher_pembelian(listVoucher.get(position), tgl_masa_berlaku, tgl_pembelian));
             }
         });
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
@@ -104,5 +119,15 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
             }
         });
         popupMenu.show();
+    }
+
+    private void setFragment(DialogFragment fragment){
+        FragmentManager fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment prev = fragmentManager.findFragmentByTag("dialog");
+        if (prev !=null){
+            fragmentTransaction.remove(prev);
+        }
+        fragment.show(fragmentTransaction, "dialog");
     }
 }

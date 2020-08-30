@@ -1,13 +1,16 @@
 package id.co.myproject.angkutapps.model.data_access_object;
 
+import java.util.List;
+
 public class LoadVoucher {
 
     private int id_pembelian_voucher;
     private String kode_voucher, nama_voucher, masa_berlaku;
     private int harga, point;
     private String deskripsi, foto_url, hari_pembelian, tgl_pembelian;
+    private List<LoadSKVoucher> syarat_ketentuan;
 
-    public LoadVoucher(int id_pembelian_voucher, String kode_voucher, String nama_voucher, String masa_berlaku, int harga, int point, String deskripsi, String foto_url, String hari_pembelian, String tgl_pembelian) {
+    public LoadVoucher(int id_pembelian_voucher, String kode_voucher, String nama_voucher, String masa_berlaku, int harga, int point, String deskripsi, String foto_url, String hari_pembelian, String tgl_pembelian, List<LoadSKVoucher> syarat_ketentuan) {
         this.id_pembelian_voucher = id_pembelian_voucher;
         this.kode_voucher = kode_voucher;
         this.nama_voucher = nama_voucher;
@@ -18,6 +21,7 @@ public class LoadVoucher {
         this.foto_url = foto_url;
         this.hari_pembelian = hari_pembelian;
         this.tgl_pembelian = tgl_pembelian;
+        this.syarat_ketentuan = syarat_ketentuan;
     }
 
     public int getId_pembelian_voucher() {
@@ -98,5 +102,13 @@ public class LoadVoucher {
 
     public void setTgl_pembelian(String tgl_pembelian) {
         this.tgl_pembelian = tgl_pembelian;
+    }
+
+    public List<LoadSKVoucher> getSyarat_ketentuan() {
+        return syarat_ketentuan;
+    }
+
+    public void setSyarat_ketentuan(List<LoadSKVoucher> syarat_ketentuan) {
+        this.syarat_ketentuan = syarat_ketentuan;
     }
 }

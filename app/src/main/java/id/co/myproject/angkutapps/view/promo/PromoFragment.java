@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -136,6 +137,7 @@ public class PromoFragment extends Fragment {
                     rvPromo.setAdapter(beliVoucherAdapter);
                 }else if (i==3){
                     voucherkuAdapter = new rv_voucherku_adapter(getContext(), loadBeliVoucher);
+//                    Log.i("Adakahh")
                     rvPromo.setAdapter(voucherkuAdapter);
                 }
                 progressDialog.dismiss();

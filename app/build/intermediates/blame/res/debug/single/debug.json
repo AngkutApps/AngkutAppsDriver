@@ -28,6 +28,10 @@
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\fragment_nearby_maps.xml"
     },
     {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\layout_df_rw_pembelian_voucher.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\df_rw_pembelian_voucher.xml"
+    },
+    {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_local_phone_black_24dp.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\ic_local_phone_black_24dp.xml"
     },
@@ -44,6 +48,10 @@
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\akun_card_list.xml"
     },
     {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\layout_df_promo_voucherku.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\df_promo_voucherku.xml"
+    },
+    {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_inputun_sel_no_telp.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\bg_inputun_sel_no_telp.xml"
     },
@@ -52,12 +60,12 @@
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_camera_alt_black_24dp.xml.flat",
-        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\ic_camera_alt_black_24dp.xml"
-    },
-    {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_bg_horizontal.png.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\bg_horizontal.png"
+    },
+    {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_camera_alt_black_24dp.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\ic_camera_alt_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_circle.xml.flat",
@@ -348,6 +356,10 @@
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\frame_voucherku.xml"
     },
     {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\layout_df_rw_penggunaan_promo.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\df_rw_penggunaan_promo.xml"
+    },
+    {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_title.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\background_title.xml"
     },
@@ -378,6 +390,10 @@
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\menu_popup_menu.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\menu\\popup_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\layout_frame_detail_riwayat.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\frame_detail_riwayat.xml"
     },
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_call_black_24dp.xml.flat",
@@ -432,12 +448,12 @@
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_search.xml.flat",
-        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\bg_search.xml"
-    },
-    {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layout_kas.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\layout_kas.xml"
+    },
+    {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_search.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\bg_search.xml"
     },
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_send_24.xml.flat",

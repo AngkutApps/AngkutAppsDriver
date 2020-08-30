@@ -6,6 +6,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
+    android:foreground="?android:attr/selectableItemBackground"
     android:layout_marginBottom="10dp"
     app:cardCornerRadius="6dp"
     android:id="@+id/cv_penggunaan"
@@ -54,6 +55,7 @@
                 android:text="Nikmati Promo Hingga Tembus Pagi Sampai Capek"
                 android:layout_toLeftOf="@+id/show_detail"
                 android:textColor="@color/textBlack"
+                android:minLines="2"
                 android:maxLines="2" />
 
             <TextView

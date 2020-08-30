@@ -80,7 +80,7 @@ public class PerjalananFragment extends Fragment {
             @Override
             public void onResponse(Call<List<loadView_rw_perjalanan>> call, Response<List<loadView_rw_perjalanan>> response) {
                 loadRiwayatPerjalanan = response.body();
-                Log.i("Hasilll", ""+response.body());
+//                Log.i("Hasilll", ""+noHpUser+" -- "+response.body());
 
                 perjalananAdapter = new rv_rw_perjalanan(getContext(), loadRiwayatPerjalanan);
                 rvVoucher.setAdapter(perjalananAdapter);

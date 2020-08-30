@@ -49,7 +49,7 @@ public class rv_beli_voucher_adapter extends RecyclerView.Adapter<rv_beli_vouche
             @Override
             public void onClick(View v) {
 //                Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
-                setFragment(new Df_beliVoucher(loadVouchers, position));
+                setFragment(new Df_beliVoucher(loadVouchers.get(position), masa_berlaku));
             }
         });
     }

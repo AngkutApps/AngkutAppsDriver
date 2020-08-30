@@ -12,12 +12,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.model.data_access_object.loadView_rw_perjalanan;
+import id.co.myproject.angkutapps.view.history.dialog_fragment.Df_DetailRiwayatFragment;
 
 public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.ViewHolder> {
 
@@ -42,7 +48,7 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
 
 
         holder.tv_tujuan.setText(listPerjalanan.get(position).getDari()+" -> "+listPerjalanan.get(position).getTujuan());
-        holder.tv_hari.setText(listPerjalanan.get(position).getHari_keberangkatan());
+//        holder.tv_hari.setText(listPerjalanan.get(position).getHari_keberangkatan());
         holder.tv_tanggal.setText(tgl_berangkat);
         if (String.valueOf(listPerjalanan.get(position).getBiaya()).length()==7){
             holder.tv_biaya.setText("Rp. "+String.valueOf(listPerjalanan.get(position).getBiaya()).substring(0, 4)+"k");
@@ -63,13 +69,13 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
         holder.cv_riwayat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                setFragment(new Df_DetailRiwayatFragment(listPerjalanan.get(position)));
             }
         });
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+listPerjalanan.get(position).getId_destinasi(), Toast.LENGTH_SHORT).show();
+                popupmenu(v, listPerjalanan.get(position).getId_destinasi());
             }
         });
 
@@ -111,6 +117,16 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
             }
         });
         popupMenu.show();
+    }
+
+    private void setFragment(DialogFragment fragment){
+        FragmentManager fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment prev = fragmentManager.findFragmentByTag("dialog");
+        if (prev !=null){
+            fragmentTransaction.remove(prev);
+        }
+        fragment.show(fragmentTransaction, "dialog");
     }
 
 }

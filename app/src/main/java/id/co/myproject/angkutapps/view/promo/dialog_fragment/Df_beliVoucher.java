@@ -46,14 +46,15 @@ public class Df_beliVoucher extends DialogFragment {
 
     tb_promo crud_tb_promo;
     rv_list_sk listSk_adapter;
-    List<LoadSKVoucher> listSK = new ArrayList<>();
-    List<LoadVoucher> loadVouchers;
-    int position;
+
     SharedPreferences sharedPreferences;
 
-    public Df_beliVoucher(List<LoadVoucher> loadVouchers, int position) {
-        this.loadVouchers = loadVouchers;
-        this.position = position;
+    LoadVoucher loadVoucher;
+    String masa_berlaku;
+
+    public Df_beliVoucher(LoadVoucher loadVoucher, String masa_berlaku) {
+        this.loadVoucher = loadVoucher;
+        this.masa_berlaku = masa_berlaku;
     }
 
     @Override
@@ -85,15 +86,17 @@ public class Df_beliVoucher extends DialogFragment {
         rvSyaratdanKetentuan = view.findViewById(R.id.rvSyaratKetentuan);
         imgClose = view.findViewById(R.id.imgClose);
 
-        tvTitleVoucher.setText(loadVouchers.get(position).getNama_voucher());
-        tvMasaBerlaku.setText(loadVouchers.get(position).getMasa_berlaku());
-        tvHarga.setText(""+loadVouchers.get(position).getHarga());
-        tvPoint.setText(""+loadVouchers.get(position).getPoint());
-        tvDeskripsiPromo.setText(loadVouchers.get(position).getDeskripsi());
+        tvTitleVoucher.setText(loadVoucher.getNama_voucher());
+        tvMasaBerlaku.setText(masa_berlaku);
+        tvHarga.setText(""+loadVoucher.getHarga());
+        tvPoint.setText(""+loadVoucher.getPoint());
+        tvDeskripsiPromo.setText(loadVoucher.getDeskripsi());
 
         rvSyaratdanKetentuan.setLayoutManager(new LinearLayoutManager(getContext()));
         rvSyaratdanKetentuan.setHasFixedSize(true);
-        loadSyaratKetentuan();
+        listSk_adapter = new rv_list_sk(getContext(), loadVoucher.getSyarat_ketentuan());
+        rvSyaratdanKetentuan.setAdapter(listSk_adapter);
+//        loadSyaratKetentuan();
 
         imgClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +110,7 @@ public class Df_beliVoucher extends DialogFragment {
             @Override
             public void onClick(View v) {
                 String noHpUser = sharedPreferences.getString(Utils.NOHP_DRIVER_KEY, "");
-                crud_tb_promo.insertBeliVoucher(loadVouchers.get(position).getKode_voucher(), noHpUser);
+                crud_tb_promo.insertBeliVoucher(loadVoucher.getKode_voucher(), noHpUser);
 //                Toast.makeText(getContext(), ""+noHpUser+" --- "+loadVouchers.get(position).getKode_voucher(), Toast.LENGTH_SHORT).show();
                 Df_beliVoucher.super.onStop();
                 Df_beliVoucher.super.onDestroyView();
@@ -116,21 +119,21 @@ public class Df_beliVoucher extends DialogFragment {
 
     }
 
-    public void loadSyaratKetentuan() {
-        Call<List<LoadSKVoucher>> call = ApiRequestPromo.getInstance().getApi().getSKBeliVoucher(loadVouchers.get(position).getKode_voucher());
-        call.enqueue(new Callback<List<LoadSKVoucher>>() {
-            @Override
-            public void onResponse(Call<List<LoadSKVoucher>> call, Response<List<LoadSKVoucher>> response) {
-                listSK = response.body();
-
-                listSk_adapter = new rv_list_sk(getContext(), listSK);
-                rvSyaratdanKetentuan.setAdapter(listSk_adapter);
-            }
-
-            @Override
-            public void onFailure(Call<List<LoadSKVoucher>> call, Throwable t) {
-
-            }
-        });
-    }
+//    public void loadSyaratKetentuan() {
+//        Call<List<LoadSKVoucher>> call = ApiRequestPromo.getInstance().getApi().getSKBeliVoucher(loadVouchers.get(position).getKode_voucher());
+//        call.enqueue(new Callback<List<LoadSKVoucher>>() {
+//            @Override
+//            public void onResponse(Call<List<LoadSKVoucher>> call, Response<List<LoadSKVoucher>> response) {
+//                listSK = response.body();
+//
+//                listSk_adapter = new rv_list_sk(getContext(), listSK);
+//                rvSyaratdanKetentuan.setAdapter(listSk_adapter);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<LoadSKVoucher>> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

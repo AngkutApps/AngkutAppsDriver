@@ -12,6 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -22,6 +27,7 @@ import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.model.crud_table.tb_rw_pembelian_voucher_driver;
 import id.co.myproject.angkutapps.model.crud_table.tb_rw_penggunaan_voucher_driver;
 import id.co.myproject.angkutapps.model.data_access_object.loadView_rw_voucher_penggunaan;
+import id.co.myproject.angkutapps.view.history.dialog_fragment.Df_voucher_penggunaan;
 
 public class rw_voucher_penggunaan extends RecyclerView.Adapter<rw_voucher_penggunaan.ViewHolder> {
 
@@ -50,6 +56,12 @@ public class rw_voucher_penggunaan extends RecyclerView.Adapter<rw_voucher_pengg
         holder.tv_title.setText(listPenggunaan.get(position).getNama_voucher());
         holder.tv_hari.setText(listPenggunaan.get(position).getHari_penggunaan());
         holder.tv_tanggal.setText(tgl_penggunaan);
+        holder.cv_voucher_penggunaan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new Df_voucher_penggunaan(listPenggunaan.get(position)));
+            }
+        });
         holder.cv_voucher_penggunaan.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -92,5 +104,15 @@ public class rw_voucher_penggunaan extends RecyclerView.Adapter<rw_voucher_pengg
             }
         });
         popupMenu.show();
+    }
+
+    private void setFragment(DialogFragment fragment){
+        FragmentManager fragmentManager = ((FragmentActivity)context).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment prev = fragmentManager.findFragmentByTag("dialog");
+        if (prev !=null){
+            fragmentTransaction.remove(prev);
+        }
+        fragment.show(fragmentTransaction, "dialog");
     }
 }

@@ -11,17 +11,17 @@ import retrofit2.http.Query;
 
 public interface ApiRiwayat {
 
-    @GET("read_rw_perjalanan_driver.php")
+    @GET("read_rw_perjalanan_driver_travel.php")
     Call<List<loadView_rw_perjalanan>> getRiwayatPerjalanan(
             @Query("no_hp") String no_hp
     );
 
-    @GET("read_rw_voucher_penggunaan_driver.php")
+    @GET("read_rw_voucher_penggunaan_driver_travel.php")
     Call<List<loadView_rw_voucher_penggunaan>> getRiwayatPenggunaanVoucher(
             @Query("no_hp") String no_hp
     );
 
-    @GET("read_rw_voucher_pembelian_driver.php")
+    @GET("read_rw_voucher_pembelian_driver_travel.php")
     Call<List<LoadVoucher>> getRiwayatPembelianVoucher(
             @Query("no_hp") String no_hp
     );

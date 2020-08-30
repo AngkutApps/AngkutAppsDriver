@@ -124,7 +124,6 @@ public class VoucherFragment extends Fragment {
             @Override
             public void onResponse(Call<List<loadView_rw_voucher_penggunaan>> call, Response<List<loadView_rw_voucher_penggunaan>> response) {
                 PenggunaanVoucher = response.body();
-
                 rwvoucherpenggunaan = new rw_voucher_penggunaan(getContext(), PenggunaanVoucher);
                 rvHistory.setAdapter(rwvoucherpenggunaan);
 
