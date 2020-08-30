@@ -81,6 +81,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -572,9 +573,10 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             List<Location> addresseTujuan = new ArrayList<>();
+                                            Map<String, Location> hasMapDestinasi = new HashMap<>();
                                             Map<Location, Marker> markerDestinasiMap = new HashMap<>();
                                             for(DataSnapshot postSnapshot : snapshot.getChildren()) {
-                                                Destinasi destinasi = postSnapshot.getValue(Destinasi.class);
+                                                DestinasiPassenger destinasi = postSnapshot.getValue(DestinasiPassenger.class);
 
                                                 Address location = getLatLngFromAddress(destinasi.getAddress());
                                                 markerSpesifik = mMap.addMarker(new MarkerOptions()
@@ -586,15 +588,31 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                                 temp.setLongitude(location.getLongitude());
 
                                                 markerDestinasiMap.put(temp, markerSpesifik);
-
                                                 addresseTujuan.add(temp);
+                                                hasMapDestinasi.put(destinasi.getIdDestinasi(), temp);
 
                                             }
 
-                                            if(addresseTujuan.contains(Utils.mLastLocation)){
-                                                Marker marker = markerDestinasiMap.get(Utils.mLastLocation);
-                                                marker.remove();
-                                                markerDestinasiMap.remove(Utils.mLastLocation);
+                                            for (String iddestinasiKey : hasMapDestinasi.keySet()){
+                                                Location destLocation = hasMapDestinasi.get(iddestinasiKey);
+                                                if (destLocation.getLatitude() == Utils.mLastLocation.getLatitude() && destLocation.getLongitude() == Utils.mLastLocation.getLongitude()){
+                                                    DatabaseReference dbhapus = FirebaseDatabase.getInstance().getReference(Utils.passenger_destination_tbl);
+                                                    dbhapus.child(listPassager.getNo_hp_user()).child(iddestinasiKey).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()){
+                                                                Toast.makeText(TrackingActivity.this, "Berhasil input riwayat", Toast.LENGTH_SHORT).show();
+                                                            }else {
+                                                                Toast.makeText(TrackingActivity.this, "Gagal hapus di firebase", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Toast.makeText(TrackingActivity.this, "Error : "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+                                                }
                                             }
 
                                         }
