@@ -31,10 +31,17 @@ import com.bumptech.glide.Glide;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.co.myproject.angkutapps.R;
+import id.co.myproject.angkutapps.adapter.rw_voucher_penggunaan;
 import id.co.myproject.angkutapps.helper.ConvertBitmap;
+import id.co.myproject.angkutapps.helper.Utils;
+import id.co.myproject.angkutapps.model.data_access_object.DataDriver;
+import id.co.myproject.angkutapps.model.data_access_object.loadView_rw_voucher_penggunaan;
+import id.co.myproject.angkutapps.request.ApiRequestDataDriver;
+import id.co.myproject.angkutapps.request.ApiRequestRiwayat;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,7 +57,7 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
     ImageButton btnBack;
     ImageView ivCamera;
     CircleImageView ivUser;
-    TextView tvUser, tvJk;
+    TextView tv_nama_driver, tv_jk_driver, tv_merk_mobil, tv_jenis_kendaraan, tv_plat_mobil, tv_warna_kendaraan;
     EditText etAlamat, etNomorHp;
     Button btnSave;
     SharedPreferences sharedPreferences;
@@ -59,20 +66,31 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
     Bitmap bitmap = null;
     String photoUser = null;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil_user);
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Mohon Tunggu.....");
+
 //        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
-//        sharedPreferences = getSharedPreferences(Utils.LOGIN_KEY, Context.MODE_PRIVATE);
-//        noHpUser = sharedPreferences.getString(Utils.NO_HP_USER_KEY, "");
+        sharedPreferences = getSharedPreferences(Utils.LOGIN_KEY, Context.MODE_PRIVATE);
+        noHpUser = sharedPreferences.getString(Utils.NOHP_DRIVER_KEY, "");
 
         btnBack = findViewById(R.id.button_back);
         ivUser = findViewById(R.id.iv_user);
         ivCamera = findViewById(R.id.iv_camera);
-        tvUser = findViewById(R.id.tv_user);
-        tvJk = findViewById(R.id.tv_jk);
+
+        tv_nama_driver = findViewById(R.id.tv_nama_driver);
+        tv_jk_driver = findViewById(R.id.tv_jk_driver);
+        tv_merk_mobil = findViewById(R.id.tv_merk_mobil);
+        tv_jenis_kendaraan = findViewById(R.id.tv_jenis_kendaraan);
+        tv_plat_mobil = findViewById(R.id.tv_plat_mobil);
+        tv_warna_kendaraan = findViewById(R.id.tv_warna_kendaraan);
+
         etAlamat = findViewById(R.id.et_alamat);
         etNomorHp = findViewById(R.id.et_nomor_hp);
         btnSave = findViewById(R.id.btn_save);
@@ -81,7 +99,10 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
         ivUser.setOnClickListener(clickListener);
         btnSave.setOnClickListener(clickListener);
 
-//        loadData();
+        etNomorHp.setText(noHpUser);
+
+        progressDialog.show();
+        loadDataDriver();
 
     }
 
@@ -99,41 +120,36 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
                     showCameraGallery();
                     break;
                 case R.id.btn_save :
-//                    updateProfil();
+                    updateProfil();
             }
         }
     };
 
-//    private void updateProfil() {
-//        if (photoUser == null) {
-//            new LoadBitmapConverterCallback(this, ProfilUser.this::bitmapToString).execute();
-//        }
-//        ProgressDialog progressDialog = new ProgressDialog(this);
-//        progressDialog.setMessage("Proses ...");
-//        progressDialog.show();
-//        User user = new User();
-//        user.setFoto(photoUser);
-//        user.setAlamat(etAlamat.getText().toString());
-//        user.setNoHp(noHpUser);
-//        Call<Value> callEditProfil = apiRequest.editProfilRequest(
-//                user
-//        );
-//
-//        callEditProfil.enqueue(new Callback<Value>() {
-//            @Override
-//            public void onResponse(Call<Value> call, Response<Value> response) {
-//
-//                progressDialog.dismiss();
-//                Toast.makeText(ProfilUser.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                loadData();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Value> call, Throwable t) {
-//                Log.e(TAG, "onFailure: "+t.getMessage());
-//            }
-//        });
-//    }
+    private void updateProfil() {
+        if (photoUser == null) {
+            new LoadBitmapConverterCallback(this, ProfilUser.this::bitmapToString).execute();
+        }
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Proses ...");
+        progressDialog.show();
+        Call<List<DataDriver>> callEditProfil = ApiRequestDataDriver.getInstance().getApi().editProfilDriver(
+                photoUser, etAlamat.getText().toString(),noHpUser
+                );
+
+        callEditProfil.enqueue(new Callback<List<DataDriver>>() {
+            @Override
+            public void onResponse(Call<List<DataDriver>> call, Response<List<DataDriver>> response) {
+
+                Toast.makeText(ProfilUser.this, ""+response.body(), Toast.LENGTH_SHORT).show();
+                loadDataDriver();
+            }
+
+            @Override
+            public void onFailure(Call<List<DataDriver>> call, Throwable t) {
+                Log.e(TAG, "onFailure: "+t.getMessage());
+            }
+        });
+    }
 
     private void showCameraGallery() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -157,6 +173,35 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
         builder.show();
     }
 
+    public void loadDataDriver() {
+        Call<List<DataDriver>> call = ApiRequestDataDriver.getInstance().getApi().getDataDriver(noHpUser);
+
+        call.enqueue(new Callback<List<DataDriver>>() {
+            @Override
+            public void onResponse(Call<List<DataDriver>> call, Response<List<DataDriver>> response) {
+                DataDriver data = response.body().get(0);
+
+                tv_nama_driver.setText(data.getNama_driver());
+                if (data.getJenis_kelamin()=='L'){
+                    tv_jk_driver.setText("Laki-laki");
+                }else{
+                    tv_jk_driver.setText("Perempuan");
+                }
+                tv_merk_mobil.setText(data.getMerk_mobil());
+                tv_jenis_kendaraan.setText(data.getNama_jenis_kendaraan());
+                tv_plat_mobil.setText(data.getPlat_mobil());
+                tv_warna_kendaraan.setText(data.getWarna_kendaraan());
+                etAlamat.setText(data.getEmail());
+
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<List<DataDriver>> call, Throwable t) {
+                progressDialog.dismiss();
+            }
+        });
+    }
 
 //    private void loadData(){
 //        Call<User> userCall = apiRequest.penumpangByIdRequest(noHpUser);

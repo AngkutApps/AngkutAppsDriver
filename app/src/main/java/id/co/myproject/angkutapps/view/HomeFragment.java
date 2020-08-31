@@ -279,6 +279,28 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        if(fusedLocationProviderClient!=null){
+            fusedLocationProviderClient.removeLocationUpdates(locationCallback);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (fusedLocationProviderClient!=null){
+            buildLocationCallback();
+            buildLocationRequest();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {

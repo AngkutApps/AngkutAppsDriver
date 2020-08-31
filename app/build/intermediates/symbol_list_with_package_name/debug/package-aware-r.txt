@@ -1937,9 +1937,11 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dot_background_payment
 drawable forgot_password_image
+drawable foto_mobil
 drawable frame_promo
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_arrow_back_black
 drawable ic_arrow_back_black_24dp
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_more_horiz_24
@@ -1955,6 +1957,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_local_phone_black_24dp
 drawable ic_location_on_black_24dp
+drawable ic_message_black
 drawable ic_message_black_24dp
 drawable ic_more_vert_black_24dp
 drawable ic_mtrl_checked_circle
@@ -2563,7 +2566,9 @@ id tv_email
 id tv_full
 id tv_hari
 id tv_jarak
+id tv_jenis_kendaraan
 id tv_jk
+id tv_jk_driver
 id tv_jumlah
 id tv_jumlah_barang
 id tv_jumlah_orang
@@ -2573,12 +2578,14 @@ id tv_login
 id tv_mencari
 id tv_merk_mobil
 id tv_nama
+id tv_nama_driver
 id tv_nama_passenger
 id tv_no_hp
 id tv_no_ktp
 id tv_password
 id tv_pesan
 id tv_plat
+id tv_plat_mobil
 id tv_registrasi
 id tv_reset_password_go_back
 id tv_riwayat
@@ -2588,6 +2595,7 @@ id tv_tanggal
 id tv_tujuan
 id tv_user
 id tv_waktu
+id tv_warna_kendaraan
 id unchecked
 id uniform
 id unlabeled

@@ -52,13 +52,22 @@ public class Df_DetailRiwayatFragment extends DialogFragment {
         tvDari.setText(loadData.getDari());
         tvTujuan.setText(loadData.getTujuan());
         tvHari.setText(loadData.getHari_keberangkatan());
-        tvHargaPerjalanan.setText(""+loadData.getBiaya());
+//        tvHargaPerjalanan.setText(""+loadData.getBiaya());
         tvTglBerangkat.setText(loadData.getTgl_berangkat());
         tvTglSampai.setText(loadData.getTgl_sampai());
         tvNamaPenumpang.setText(loadData.getNama_user());
         tvJenisKelamin.setText(""+loadData.getJenis_kelamin());
         tvPenumpangDewasa.setText(""+loadData.getPenumpang_dewasa());
         tvPenumpangAnak.setText(""+loadData.getPenumpang_anak());
+
+        int panjang = loadData.getBiaya();
+        if (panjang>9999 && panjang<99999){
+            tvHargaPerjalanan.setText(String.valueOf(loadData.getBiaya()).substring(0, 2)+"k");
+        }else if (panjang>99999 && panjang<999999){
+            tvHargaPerjalanan.setText(String.valueOf(loadData.getBiaya()).substring(0, 3)+"k");
+        }else if (panjang>999999){
+            tvHargaPerjalanan.setText(String.valueOf(loadData.getBiaya()).substring(0, 4)+"k");
+        }
 
 //        if (loadView.getTransportasi().equals("bus"))
 //            imgProfil.setBackgroundResource(R.drawable.shape_oval_bus);

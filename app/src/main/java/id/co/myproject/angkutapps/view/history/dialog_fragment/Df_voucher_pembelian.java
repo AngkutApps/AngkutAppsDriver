@@ -59,7 +59,7 @@ public class Df_voucher_pembelian extends DialogFragment {
         tvTanggalPembelian.setText(loadVoucher.getTgl_pembelian());
         tvMasaBerlaku.setText(masa_berlaku);
         tvHariPembelian.setText(loadVoucher.getHari_pembelian());
-        tvPembayaran.setText(""+loadVoucher.getHarga());
+        tvPembayaran.setText("Rp. "+loadVoucher.getHarga());
         tvDeskripsiVoucher.setText(loadVoucher.getDeskripsi());
 
         rvSyaratKetentuan.setLayoutManager(new LinearLayoutManager(getContext()));

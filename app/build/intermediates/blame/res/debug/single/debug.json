@@ -308,6 +308,10 @@
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\frame_hitsory.xml"
     },
     {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_message_black.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\ic_message_black.xml"
+    },
+    {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_edit_profil.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\fragment_edit_profil.xml"
     },
@@ -374,6 +378,10 @@
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_foto_mobil.jpg.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\foto_mobil.jpg"
     },
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_input_no_telp.xml.flat",
@@ -498,5 +506,9 @@
     {
         "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_kontak_darurat.xml.flat",
         "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\layout\\activity_kontak_darurat.xml"
+    },
+    {
+        "merged": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_back_black.xml.flat",
+        "source": "C:\\Users\\irwan\\AndroidStudioProjects\\AngkutAppsDriver\\app\\src\\main\\res\\drawable\\ic_arrow_back_black.xml"
     }
 ]
