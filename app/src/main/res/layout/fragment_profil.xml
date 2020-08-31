@@ -37,7 +37,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:id="@+id/img_profil"
+                />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -48,6 +48,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name="id.co.myproject.angkutapps.view.profil.ProfilUser" />
         <activity
             android:name="id.co.myproject.angkutapps.view.TrackingActivity"
             android:label="@string/title_activity_tracking" />

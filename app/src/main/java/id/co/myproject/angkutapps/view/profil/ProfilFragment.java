@@ -13,11 +13,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import id.co.myproject.angkutapps.R;
+import id.co.myproject.angkutapps.view.profil.dialog_fragment.Df_BagikanFeedback;
 import id.co.myproject.angkutapps.view.profil.dialog_fragment.Df_BeriMasukan;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 
 /**
@@ -30,7 +33,7 @@ public class ProfilFragment extends Fragment {
 //    SharedPreferences sharedPreferences;
 //    ApiRequest apiRequest;
 //    int idUser;
-
+    View img_profil;
     CardView cv_Hadiah, cv_pusatBantuan, cv_kontakDarurat, cv_pengaturan, cv_bagikanFeedback, cv_beriMasukan, cv_FAQ, cv_logOut;
 
     public ProfilFragment() {
@@ -57,6 +60,7 @@ public class ProfilFragment extends Fragment {
         cv_beriMasukan = view.findViewById(R.id.cv_beriMasukan);
         cv_FAQ = view.findViewById(R.id.cv_FAQ);
         cv_logOut = view.findViewById(R.id.cv_logOut);
+        img_profil = view.findViewById(R.id.img_profil);
 
         cv_Hadiah.setOnClickListener(clickListener);
         cv_pusatBantuan.setOnClickListener(clickListener);
@@ -66,6 +70,7 @@ public class ProfilFragment extends Fragment {
         cv_beriMasukan.setOnClickListener(clickListener);
         cv_FAQ.setOnClickListener(clickListener);
         cv_logOut.setOnClickListener(clickListener);
+        img_profil.setOnClickListener(clickListener);
 //        sharedPreferences = getActivity().getSharedPreferences(Utils.LOGIN_KEY, Context.MODE_PRIVATE);
 //        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
 //        idUser = sharedPreferences.getInt(Utils.KODE_DRIVER_KEY, 0);
@@ -92,6 +97,9 @@ public class ProfilFragment extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
+                case R.id.img_profil:
+                    startActivity(new Intent(getActivity(), ProfilUser.class));
+                    break;
                 case R.id.cv_hadiah:
                     break;
                 case R.id.cv_pusatBantuan:
@@ -102,6 +110,7 @@ public class ProfilFragment extends Fragment {
                 case R.id.cv_pengaturan:
                     break;
                 case R.id.cv_bagikanFeedback:
+                    BottomDialogFragment(new Df_BagikanFeedback());
                     break;
                 case R.id.cv_beriMasukan:
                     setFragment(new Df_BeriMasukan());
@@ -122,6 +131,12 @@ public class ProfilFragment extends Fragment {
             fragmentTransaction.remove(prev);
         }
         fragment.show(fragmentTransaction, "dialog");
+    }
+
+    private void BottomDialogFragment(BottomSheetDialogFragment frag){
+        FragmentManager fragmentManager = ((FragmentActivity)getContext()).getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        frag.show(fragmentManager, "ExampleBottomSheet");
     }
 
 //    private void loadData() {

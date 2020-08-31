@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.co.myproject.angkutapps.R;
-import id.co.myproject.angkutapps.adapter.RiwayatAdapter;
+import id.co.myproject.angkutapps.adapter.rw_voucher_pembelian;
 import id.co.myproject.angkutapps.adapter.*;
 import id.co.myproject.angkutapps.helper.Utils;
 import id.co.myproject.angkutapps.model.data_access_object.LoadVoucher;
-import id.co.myproject.angkutapps.request.ApiPromo;
-import id.co.myproject.angkutapps.request.ApiRequest;
 import id.co.myproject.angkutapps.request.ApiRequestPromo;
-import id.co.myproject.angkutapps.view.history.PerjalananFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +39,7 @@ public class PromoFragment extends Fragment {
     rv_beli_voucher_adapter beliVoucherAdapter;
     rv_voucherku_adapter voucherkuAdapter;
 
-    RiwayatAdapter riwayatAdapter;
+    rw_voucher_pembelian rwvoucherpembelian;
     SharedPreferences sharedPreferences;
 
     ProgressDialog progressDialog;
@@ -98,7 +96,8 @@ public class PromoFragment extends Fragment {
                     viewButtonNormal();
                     btnBeliVoucherku.setBackgroundColor(Color.parseColor("#008577"));
                     btnBeliVoucherku.setTextColor(Color.parseColor("#FFFFFF"));
-                    loadBagianPromo(3);
+                    progressDialog.show();
+                    loadBagianPromo(2);
                     break;
             }
         }
@@ -115,7 +114,7 @@ public class PromoFragment extends Fragment {
         btnVoucherku.setBackgroundColor(Color.parseColor("#008577"));
         btnVoucherku.setTextColor(Color.parseColor("#FFFFFF"));
         progressDialog.show();
-        loadBagianPromo(2);
+        loadBagianPromo(3);
 //        setFragment(new PerjalananFragment());
     }
 
@@ -124,9 +123,9 @@ public class PromoFragment extends Fragment {
 
         Call<List<LoadVoucher>> call = null;
         if (i==2){
-            call = ApiRequestPromo.getInstance().getApi().getPromoVoucherku(noHpUser);
-        }else if (i==3){
             call = ApiRequestPromo.getInstance().getApi().getPromoBeliVoucher();
+        }else if (i==3){
+            call = ApiRequestPromo.getInstance().getApi().getPromoVoucherku(noHpUser);
         }
         call.enqueue(new Callback<List<LoadVoucher>>() {
             @Override
@@ -134,11 +133,12 @@ public class PromoFragment extends Fragment {
                 loadBeliVoucher = response.body();
 
                 if (i==2){
-                    voucherkuAdapter = new rv_voucherku_adapter(getContext(), loadBeliVoucher);
-                    rvPromo.setAdapter(voucherkuAdapter);
-                }else if (i==3){
                     beliVoucherAdapter = new rv_beli_voucher_adapter(getContext(), loadBeliVoucher);
                     rvPromo.setAdapter(beliVoucherAdapter);
+                }else if (i==3){
+                    voucherkuAdapter = new rv_voucherku_adapter(getContext(), loadBeliVoucher);
+//                    Log.i("Adakahh")
+                    rvPromo.setAdapter(voucherkuAdapter);
                 }
                 progressDialog.dismiss();
             }
