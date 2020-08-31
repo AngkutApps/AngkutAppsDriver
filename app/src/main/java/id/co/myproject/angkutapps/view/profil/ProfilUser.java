@@ -34,11 +34,14 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import id.co.myproject.angkutapps.BuildConfig;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.adapter.rw_voucher_penggunaan;
 import id.co.myproject.angkutapps.helper.ConvertBitmap;
 import id.co.myproject.angkutapps.helper.Utils;
 import id.co.myproject.angkutapps.model.data_access_object.DataDriver;
+import id.co.myproject.angkutapps.model.data_access_object.Driver;
+import id.co.myproject.angkutapps.model.data_access_object.Value;
 import id.co.myproject.angkutapps.model.data_access_object.loadView_rw_voucher_penggunaan;
 import id.co.myproject.angkutapps.request.ApiRequestDataDriver;
 import id.co.myproject.angkutapps.request.ApiRequestRiwayat;
@@ -132,21 +135,26 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Proses ...");
         progressDialog.show();
-        Call<List<DataDriver>> callEditProfil = ApiRequestDataDriver.getInstance().getApi().editProfilDriver(
-                photoUser, etAlamat.getText().toString(),noHpUser
-                );
 
-        callEditProfil.enqueue(new Callback<List<DataDriver>>() {
+        Driver driver = new Driver();
+        driver.setNoHp(noHpUser);
+        driver.setEmail(etAlamat.getText().toString());
+        driver.setFoto(photoUser);
+
+        Call<Value> editProfilProses = ApiRequestDataDriver.getInstance().getApi().editProfilDriver(driver);
+        editProfilProses.enqueue(new Callback<Value>() {
             @Override
-            public void onResponse(Call<List<DataDriver>> call, Response<List<DataDriver>> response) {
-
-                Toast.makeText(ProfilUser.this, ""+response.body(), Toast.LENGTH_SHORT).show();
-                loadDataDriver();
+            public void onResponse(Call<Value> call, Response<Value> response) {
+                progressDialog.dismiss();
+                Toast.makeText(ProfilUser.this, ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                if (response.body().getValue() == 1){
+                    finish();
+                }
             }
 
             @Override
-            public void onFailure(Call<List<DataDriver>> call, Throwable t) {
-                Log.e(TAG, "onFailure: "+t.getMessage());
+            public void onFailure(Call<Value> call, Throwable t) {
+                Toast.makeText(ProfilUser.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -179,6 +187,9 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
         call.enqueue(new Callback<List<DataDriver>>() {
             @Override
             public void onResponse(Call<List<DataDriver>> call, Response<List<DataDriver>> response) {
+
+                Log.d(TAG, "onResponse: Mantap Djiwa : "+response.body().size());
+
                 DataDriver data = response.body().get(0);
 
                 tv_nama_driver.setText(data.getNama_driver());
@@ -192,6 +203,8 @@ public class ProfilUser extends AppCompatActivity implements ConvertBitmap {
                 tv_plat_mobil.setText(data.getPlat_mobil());
                 tv_warna_kendaraan.setText(data.getWarna_kendaraan());
                 etAlamat.setText(data.getEmail());
+
+                Glide.with(ProfilUser.this).load(BuildConfig.BASE_URL_GAMBAR+"profil/"+data.getFoto()).into(ivUser);
 
                 progressDialog.dismiss();
             }
