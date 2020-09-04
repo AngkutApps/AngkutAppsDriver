@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +37,7 @@ import id.co.myproject.angkutapps.model.data_access_object.Chat;
 
 public class Df_chat extends DialogFragment {
 
+    TextView tv_nama_user, tv_tujuan_user;
     RecyclerView rvChat;
     EditText etPesan;
     ImageView btnSend;
@@ -47,11 +50,13 @@ public class Df_chat extends DialogFragment {
     ArrayList<Chat> list = new ArrayList<>();
     SharedPreferences sharedPreferences;
 
-    String noHpUser;
+    String noHpUser, nama, city;
     String noHpDriver;
 
-    public Df_chat(String noHpUser) {
+    public Df_chat(String noHpUser, String nama, String city) {
         this.noHpUser = noHpUser;
+        this.nama = nama;
+        this.city = city;
     }
 
     @Override
@@ -66,6 +71,11 @@ public class Df_chat extends DialogFragment {
         rvChat = view.findViewById(R.id.rvPesan);
         etPesan = view.findViewById(R.id.etPesan);
         btnSend = view.findViewById(R.id.imgButtonSend);
+        tv_nama_user = view.findViewById(R.id.tv_nama_user);
+        tv_tujuan_user = view.findViewById(R.id.tv_tujuan_user);
+
+        tv_nama_user.setText(nama);
+        tv_tujuan_user.setText(city);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 //        layoutManager.setStackFromEnd(true);

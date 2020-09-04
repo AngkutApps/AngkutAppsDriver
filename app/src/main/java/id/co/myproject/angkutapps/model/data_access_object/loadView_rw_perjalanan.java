@@ -3,11 +3,11 @@ package id.co.myproject.angkutapps.model.data_access_object;
 public class loadView_rw_perjalanan {
 
     int biaya;
-    String dari, alamat_dari, tujuan, alamat_tujuan, tgl_berangkat, hari_keberangkatan, tgl_sampai, nama_user;
+    String dari, alamat_dari, tujuan, alamat_tujuan, tgl_berangkat, hari_keberangkatan, tgl_sampai, no_hp, nama_user;
     char jenis_kelamin;
     int penumpang_dewasa, penumpang_anak, id_destinasi;
 
-    public loadView_rw_perjalanan(int biaya, String dari, String alamat_dari, String tujuan, String alamat_tujuan, String tgl_berangkat, String hari_keberangkatan, String tgl_sampai, String nama_user, char jenis_kelamin, int penumpang_dewasa, int penumpang_anak, int id_destinasi) {
+    public loadView_rw_perjalanan(int biaya, String dari, String alamat_dari, String tujuan, String alamat_tujuan, String tgl_berangkat, String hari_keberangkatan, String tgl_sampai, String no_hp, String nama_user, char jenis_kelamin, int penumpang_dewasa, int penumpang_anak, int id_destinasi) {
         this.biaya = biaya;
         this.dari = dari;
         this.alamat_dari = alamat_dari;
@@ -16,6 +16,7 @@ public class loadView_rw_perjalanan {
         this.tgl_berangkat = tgl_berangkat;
         this.hari_keberangkatan = hari_keberangkatan;
         this.tgl_sampai = tgl_sampai;
+        this.no_hp = no_hp;
         this.nama_user = nama_user;
         this.jenis_kelamin = jenis_kelamin;
         this.penumpang_dewasa = penumpang_dewasa;
@@ -85,6 +86,14 @@ public class loadView_rw_perjalanan {
 
     public void setTgl_sampai(String tgl_sampai) {
         this.tgl_sampai = tgl_sampai;
+    }
+
+    public String getNo_hp() {
+        return no_hp;
+    }
+
+    public void setNo_hp(String no_hp) {
+        this.no_hp = no_hp;
     }
 
     public String getNama_user() {

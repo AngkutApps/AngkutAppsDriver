@@ -2113,6 +2113,7 @@ id btnVoucherku
 id btn_angkut
 id btn_batalkan
 id btn_cancel
+id btn_chat
 id btn_masuk
 id btn_mulai_perjalanan
 id btn_perjalanan
@@ -2289,6 +2290,7 @@ id iv_user
 id ketKodeOTP
 id labeled
 id largeLabel
+id lay_toolbar
 id layout
 id layoutFrame
 id layoutInfoUser
@@ -2580,6 +2582,7 @@ id tv_merk_mobil
 id tv_nama
 id tv_nama_driver
 id tv_nama_passenger
+id tv_nama_user
 id tv_no_hp
 id tv_no_ktp
 id tv_password
@@ -2593,6 +2596,7 @@ id tv_sdank
 id tv_selesai
 id tv_tanggal
 id tv_tujuan
+id tv_tujuan_user
 id tv_user
 id tv_waktu
 id tv_warna_kendaraan

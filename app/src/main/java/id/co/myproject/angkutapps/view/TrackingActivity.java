@@ -742,6 +742,8 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         });
         latLngPassangerFound = latLngPassanger;
         driverTracking = true;
+
+
     }
 
     private void loadDataPenjemputan(String noHpUser, String idDestinasi) {
@@ -767,7 +769,26 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                         tvJumlahBarang.setText(destinasiPassenger.getJumlahBarang());
                                         lvPenjemputan.setVisibility(View.VISIBLE);
                                         progressDialog.dismiss();
-                                        imgButtonChat.setOnClickListener(v -> setFragment(new Df_chat(noHpUser)));
+                                        DatabaseReference dbTujuan = FirebaseDatabase.getInstance().getReference(Utils.passenger_destination_tbl);
+                                        dbTujuan.child(noHpUser).child(idDestinasi)
+                                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        if (dataSnapshot.exists()){
+                                                            DestinasiPassenger destinasiPassengerData = dataSnapshot.getValue(DestinasiPassenger.class);
+
+                                                            imgButtonChat.setOnClickListener(v -> setFragment(new Df_chat(noHpUser, passenger.getNama(), destinasiPassengerData.getCity())));
+
+                                                        }
+
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
+
                                     }else {
                                         Toast.makeText(TrackingActivity.this, "Gagal tampil jemput", Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();

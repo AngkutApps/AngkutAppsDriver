@@ -3,20 +3,53 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="13dp"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lay_toolbar"
+        android:background="@color/colorPrimary"
+        android:padding="13dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_nama_user"
+            android:text="Nama User"
+            android:textColor="@color/textColorWhite"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tujuan_user"
+            android:text="Tujuan User"
+            android:textColor="#CCFFFFFF"
+            />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/lay_toolbar"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/etPesan"
         android:layout_marginBottom="10dp"
         android:id="@+id/rvPesan"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
         >
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <EditText
+        android:layout_marginLeft="13dp"
         android:id="@+id/etPesan"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -26,6 +59,7 @@
         />
 
     <ImageView
+        android:layout_marginRight="13dp"
         android:layout_alignParentBottom="true"
         android:id="@+id/imgButtonSend"
         android:layout_width="30dp"
