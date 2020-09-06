@@ -79,6 +79,11 @@ public interface ApiRequest {
             @Field("no_hp") String noHp
     );
 
+    @FormUrlEncoded
+    @POST("logout_driver_travel.php")
+    Call<Value> logoutDriverRequest(
+            @Field("no_hp") String noHp
+    );
 
     @FormUrlEncoded
     @POST("input_riwayat.php")

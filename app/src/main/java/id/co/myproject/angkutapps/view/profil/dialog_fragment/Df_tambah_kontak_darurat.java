@@ -71,7 +71,26 @@ public class Df_tambah_kontak_darurat extends DialogFragment {
         btnSaveKontak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                crudKontakDarurat.tambahKontakDarurat(etNamaKontakDarurat.getText().toString().trim(), etHubunganKontak.getText().toString().trim(), et_nomor_hp.getText().toString().trim());
+                if (kondisi==1) {
+                    if (etNamaKontakDarurat.getText().toString().trim() == null) {
+                        etNamaKontakDarurat.setError("Kosong");
+                    } else if (etHubunganKontak.getText().toString().trim().equals("")) {
+                        etHubunganKontak.setError("Kosong");
+                    } else if (et_nomor_hp.getText().toString().trim() == null) {
+                        et_nomor_hp.setError("Kosong");
+                    } else {
+                        crudKontakDarurat.tambahKontakDarurat(etNamaKontakDarurat.getText().toString().trim(), etHubunganKontak.getText().toString().trim(), et_nomor_hp.getText().toString().trim());
+                    }
+                }else if (kondisi==2){
+                    if(etNamaKontakDarurat.getText().toString().trim().equals("")){
+                        etNamaKontakDarurat.setError("Kosong");
+                    }else if (etHubunganKontak.getText().toString().trim().equals("")){
+                        etHubunganKontak.setError("Kosong");
+                    }else {
+                        crudKontakDarurat.updateKontakDarurat(etNamaKontakDarurat.getText().toString().trim(), etHubunganKontak.getText().toString().trim(),
+                                et_nomor_hp.getText().toString().trim());
+                    }
+                }
                 Df_tambah_kontak_darurat.super.onStop();
                 Df_tambah_kontak_darurat.super.onDestroyView();
             }

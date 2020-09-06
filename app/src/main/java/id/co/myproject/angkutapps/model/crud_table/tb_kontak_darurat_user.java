@@ -58,6 +58,27 @@ public class tb_kontak_darurat_user {
                     }
                 });
     }
+
+    public void updateKontakDarurat(String nama, String hubungan, String nomor){
+        AndroidNetworking.post("http://angkutapps.com/angkut_api/update_kontak_darurat_driver_travel.php")
+                .addBodyParameter("no_hp", no_hp)
+                .addBodyParameter("nama_kontak", nama)
+                .addBodyParameter("hubungan_kontak", hubungan)
+                .addBodyParameter("nomor_kontak_darurat", nomor)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(context, "Kontak Berhasil Diubah", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Toast.makeText(context, "Kontak Gagal Diubah", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 //
 //    public void updateKontakDarurat(String nama, String hubungan, String nomor){
 //        AndroidNetworking.post("http://angkutapps.com/angkut_api/update_kontak_darurat_user.php")

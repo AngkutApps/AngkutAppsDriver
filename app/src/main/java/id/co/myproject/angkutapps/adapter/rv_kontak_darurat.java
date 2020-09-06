@@ -56,6 +56,7 @@ public class rv_kontak_darurat extends RecyclerView.Adapter<rv_kontak_darurat.Vi
         holder.btnSettingKontakDarurat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Toast.makeText(context, ""+kontakDarurats.get(position).getId_kontak_darurat(), Toast.LENGTH_SHORT).show();
                 popupmenu(v, kontakDarurats.get(position).getId_kontak_darurat(), position);
             }
         });
@@ -100,6 +101,7 @@ public class rv_kontak_darurat extends RecyclerView.Adapter<rv_kontak_darurat.Vi
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 removeItem(position);
+//                Toast.makeText(context, ""+id, Toast.LENGTH_SHORT).show();
                 tbKontakDaruratUser.deleteKontakDarurat(""+id);
                 return false;
             }
