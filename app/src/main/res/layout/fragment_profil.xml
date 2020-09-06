@@ -31,17 +31,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <View
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/colorPrimary"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/img_profil"
+                android:scaleType="centerCrop"
                 />
 
             <TextView
+                android:id="@+id/tv_nama_driver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
