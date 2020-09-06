@@ -24,8 +24,10 @@ import com.androidnetworking.AndroidNetworking;
 import java.util.List;
 
 import id.co.myproject.angkutapps.R;
+import id.co.myproject.angkutapps.helper.OnClickPerjalanan;
 import id.co.myproject.angkutapps.model.crud_table.tb_rw_perjalanan_driver;
 import id.co.myproject.angkutapps.model.data_access_object.loadView_rw_perjalanan;
+import id.co.myproject.angkutapps.view.history.PerjalananFragment;
 import id.co.myproject.angkutapps.view.history.dialog_fragment.Df_DetailRiwayatFragment;
 
 public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.ViewHolder> {
@@ -33,16 +35,20 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
     private Context context;
     private List<loadView_rw_perjalanan> listPerjalanan;
     tb_rw_perjalanan_driver crud_table;
+    PerjalananFragment perjalananFragment;
+    OnClickPerjalanan onClickPerjalanan;
 
-    public rv_rw_perjalanan(Context context, List<loadView_rw_perjalanan> loadRiwayatPerjalanan) {
+    public rv_rw_perjalanan(Context context, List<loadView_rw_perjalanan> loadRiwayatPerjalanan, OnClickPerjalanan onClickPerjalanan) {
         this.context = context;
         this.listPerjalanan = loadRiwayatPerjalanan;
+        this.onClickPerjalanan = onClickPerjalanan;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_hitsory, parent, false);
         crud_table = new tb_rw_perjalanan_driver(context);
+        perjalananFragment = new PerjalananFragment();
         AndroidNetworking.initialize(context);
         return new ViewHolder(view);
     }
@@ -70,7 +76,7 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
         holder.cv_riwayat.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                popupmenu(v, listPerjalanan.get(position).getId_perjalanan());
+                popupmenu(v, listPerjalanan.get(position).getId_perjalanan(), position);
                 return false;
             }
         });
@@ -83,10 +89,15 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                popupmenu(v, listPerjalanan.get(position).getId_perjalanan());
+                popupmenu(v, listPerjalanan.get(position).getId_perjalanan(), position);
             }
         });
 
+    }
+
+    private void removeItem(int index){
+        listPerjalanan.remove(index);
+        notifyItemRemoved(index);
     }
 
     @Override
@@ -114,15 +125,18 @@ public class rv_rw_perjalanan extends RecyclerView.Adapter<rv_rw_perjalanan.View
         }
     }
 
-    private void popupmenu(View v, int getId){
+    private void popupmenu(View v, int getId, int position){
         PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
         popupMenu.inflate(R.menu.popup_menu);
 //        id = getId;
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+
 //                Toast.makeText(context, ""+getId, Toast.LENGTH_SHORT).show();
                 crud_table.deleteRiwayatPerjalanan(""+getId);
+                removeItem(position);
+//                perjalananFragment.loadPerjalanan();
                 return false;
             }
         });

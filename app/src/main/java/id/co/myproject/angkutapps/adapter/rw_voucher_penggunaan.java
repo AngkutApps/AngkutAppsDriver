@@ -65,10 +65,15 @@ public class rw_voucher_penggunaan extends RecyclerView.Adapter<rw_voucher_pengg
         holder.cv_voucher_penggunaan.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                popupmenu(v, listPenggunaan.get(position).getId_penggunaan_voucher());
+                popupmenu(v, listPenggunaan.get(position).getId_penggunaan_voucher(), position);
                 return false;
             }
         });
+    }
+
+    private void removeItem(int index){
+        listPenggunaan.remove(index);
+        notifyItemRemoved(index);
     }
 
     @Override
@@ -92,7 +97,7 @@ public class rw_voucher_penggunaan extends RecyclerView.Adapter<rw_voucher_pengg
         }
     }
 
-    private void popupmenu(View v, int getId){
+    private void popupmenu(View v, int getId, int position){
         PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
         popupMenu.inflate(R.menu.popup_menu);
 //        id = getId;
@@ -100,6 +105,7 @@ public class rw_voucher_penggunaan extends RecyclerView.Adapter<rw_voucher_pengg
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 crudTable.deleteRiwayatPenggunaanVoucher(String.valueOf(getId));
+                removeItem(position);
                 return false;
             }
         });

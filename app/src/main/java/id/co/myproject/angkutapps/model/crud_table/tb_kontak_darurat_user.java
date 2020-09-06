@@ -21,7 +21,7 @@ public class tb_kontak_darurat_user {
     }
 
     public void tambahKontakDarurat(String nama, String hubungan, String nomor){
-        AndroidNetworking.post("http://angkutapps.com/angkut_api/insert_kontak_darurat_user.php")
+        AndroidNetworking.post("http://angkutapps.com/angkut_api/insert_kontak_darurat_driver_travel.php")
                 .addBodyParameter("no_hp", no_hp)
                 .addBodyParameter("nama_kontak", nama)
                 .addBodyParameter("hubungan_kontak", hubungan)
@@ -31,7 +31,7 @@ public class tb_kontak_darurat_user {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(context, "Kontak Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "Kontak Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -41,23 +41,23 @@ public class tb_kontak_darurat_user {
                 });
     }
 //
-//    public void deleteKontakDarurat(String nomor){
-//        AndroidNetworking.post("http://angkutapps.com/angkut_api/delete_kontak_darurat_user.php")
-//                .addBodyParameter("nomor_kontak_darurat", nomor)
-//                .setPriority(Priority.MEDIUM)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Toast.makeText(context, "Kontak Berhasil Terhapus", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    @Override
-//                    public void onError(ANError anError) {
-//                        Toast.makeText(context, "Kontak Gagal Terhapus", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//    }
+    public void deleteKontakDarurat(String id){
+        AndroidNetworking.post("http://angkutapps.com/angkut_api/delete_kontak_darurat_driver_travel.php")
+                .addBodyParameter("id_kontak_darurat", id)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(context, "Kontak Berhasil Terhapus", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Toast.makeText(context, "Kontak Gagal Terhapus", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 //
 //    public void updateKontakDarurat(String nama, String hubungan, String nomor){
 //        AndroidNetworking.post("http://angkutapps.com/angkut_api/update_kontak_darurat_user.php")

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:id="@+id/rlKontakDarurat"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:id="@+id/layout1"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Irwan Ardyansah"
+            android:textColor="@color/textBlack"
+            android:id="@+id/tvNamaKontakDarurat"
+            android:textSize="16sp"
+            android:layout_marginRight="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Orang Tua)"
+            android:textSize="10sp"
+            android:id="@+id/tvHubunganKontakDarurat"
+            android:layout_toRightOf="@+id/tvNamaKontakDarurat"
+            android:layout_alignBottom="@+id/tvNamaKontakDarurat"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+6285299935661"
+            android:id="@+id/tvNomorKontakDarurat"
+            android:textSize="18sp"
+            android:layout_below="@+id/tvNamaKontakDarurat"
+            />
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_more_vert_black_24dp"
+            android:background="@null"
+            android:id="@+id/btnSettingKontakDarurat"
+            android:layout_centerVertical="true"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_alignParentRight="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAbuAbu"
+        android:layout_below="@id/layout1"
+        />
+
+</RelativeLayout>

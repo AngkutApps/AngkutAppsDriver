@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,8 @@ public class Df_tambah_kontak_darurat extends DialogFragment {
 
     Button btnSaveKontak;
     EditText etNamaKontakDarurat, etHubunganKontak, et_nomor_hp;
+
+    int kondisi = 0;
 
     public Df_tambah_kontak_darurat() {
     }
@@ -50,6 +53,20 @@ public class Df_tambah_kontak_darurat extends DialogFragment {
         sharedPreferences = getContext().getSharedPreferences(Utils.LOGIN_KEY, Context.MODE_PRIVATE);
         String noHpUser = sharedPreferences.getString(Utils.NOHP_DRIVER_KEY, "");
         crudKontakDarurat = new tb_kontak_darurat_user(getContext(), noHpUser);
+
+        try {
+            if (getArguments()!=null){
+                etNamaKontakDarurat.setText(getArguments().getString("namaKontak"));
+                etHubunganKontak.setText(getArguments().getString("hubunganKontak"));
+                et_nomor_hp.setText(getArguments().getString("nomorKontak"));
+                et_nomor_hp.setKeyListener(null);
+                kondisi = 2;
+            }else {
+                kondisi = 1;
+            }
+        }catch (Exception ex){
+            Toast.makeText(getContext(), ""+ex, Toast.LENGTH_SHORT).show();
+        }
 
         btnSaveKontak.setOnClickListener(new View.OnClickListener() {
             @Override

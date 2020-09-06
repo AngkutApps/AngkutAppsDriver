@@ -67,7 +67,7 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
         holder.cv_riwayat.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                popupmenu(v, listVoucher.get(position).getId_pembelian_voucher());
+                popupmenu(v, listVoucher.get(position).getId_pembelian_voucher(), position);
                 return false;
             }
         });
@@ -80,10 +80,15 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                popupmenu(v, listVoucher.get(position).getId_pembelian_voucher());
+                popupmenu(v, listVoucher.get(position).getId_pembelian_voucher(), position);
 //                Toast.makeText(context, ""+listVoucher.get(position).getId_pembelian_voucher(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void removeItem(int index){
+        listVoucher.remove(index);
+        notifyItemRemoved(index);
     }
 
     @Override
@@ -108,7 +113,7 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
             img_status = itemView.findViewById(R.id.img_status);
         }
     }
-    private void popupmenu(View v, int getId){
+    private void popupmenu(View v, int getId, int position){
         PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
         popupMenu.inflate(R.menu.popup_menu);
 //        id = getId;
@@ -116,6 +121,7 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 crudTable.deleteRiwayatPembelianVoucher(String.valueOf(getId));
+                removeItem(position);
 //                Toast.makeText(context, ""+getId, Toast.LENGTH_SHORT).show();
                 return false;
             }

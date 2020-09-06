@@ -21,6 +21,7 @@ import java.util.List;
 
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.adapter.rv_rw_perjalanan;
+import id.co.myproject.angkutapps.helper.OnClickPerjalanan;
 import id.co.myproject.angkutapps.helper.Utils;
 import id.co.myproject.angkutapps.model.data_access_object.loadView_rw_perjalanan;
 import id.co.myproject.angkutapps.request.ApiRequestRiwayat;
@@ -28,13 +29,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PerjalananFragment extends Fragment {
+public class PerjalananFragment extends Fragment implements OnClickPerjalanan {
 
     rv_rw_perjalanan perjalananAdapter;
     RecyclerView rvVoucher;
 
     ProgressDialog progressDialog;
     List<loadView_rw_perjalanan> loadRiwayatPerjalanan = new ArrayList<>();
+
     SharedPreferences sharedPreferences;
 
     public PerjalananFragment() {
@@ -82,7 +84,7 @@ public class PerjalananFragment extends Fragment {
                 loadRiwayatPerjalanan = response.body();
 //                Log.i("Hasilll", ""+noHpUser+" -- "+response.body());
 
-                perjalananAdapter = new rv_rw_perjalanan(getContext(), loadRiwayatPerjalanan);
+                perjalananAdapter = new rv_rw_perjalanan(getContext(), loadRiwayatPerjalanan, PerjalananFragment.this::onLoadPerjalanan);
                 rvVoucher.setAdapter(perjalananAdapter);
 
                 progressDialog.dismiss();
@@ -93,5 +95,12 @@ public class PerjalananFragment extends Fragment {
                 progressDialog.dismiss();
             }
         });
+    }
+
+    @Override
+    public void onLoadPerjalanan(boolean load) {
+        if (load){
+            loadPerjalanan();
+        }
     }
 }
