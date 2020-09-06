@@ -5,9 +5,9 @@ public class loadView_rw_perjalanan {
     int biaya;
     String dari, alamat_dari, tujuan, alamat_tujuan, tgl_berangkat, hari_keberangkatan, tgl_sampai, no_hp, nama_user;
     char jenis_kelamin;
-    int penumpang_dewasa, penumpang_anak, id_destinasi;
+    int penumpang_dewasa, penumpang_anak, id_destinasi, id_perjalanan;
 
-    public loadView_rw_perjalanan(int biaya, String dari, String alamat_dari, String tujuan, String alamat_tujuan, String tgl_berangkat, String hari_keberangkatan, String tgl_sampai, String no_hp, String nama_user, char jenis_kelamin, int penumpang_dewasa, int penumpang_anak, int id_destinasi) {
+    public loadView_rw_perjalanan(int biaya, String dari, String alamat_dari, String tujuan, String alamat_tujuan, String tgl_berangkat, String hari_keberangkatan, String tgl_sampai, String no_hp, String nama_user, char jenis_kelamin, int penumpang_dewasa, int penumpang_anak, int id_destinasi, int id_perjalanan) {
         this.biaya = biaya;
         this.dari = dari;
         this.alamat_dari = alamat_dari;
@@ -22,6 +22,7 @@ public class loadView_rw_perjalanan {
         this.penumpang_dewasa = penumpang_dewasa;
         this.penumpang_anak = penumpang_anak;
         this.id_destinasi = id_destinasi;
+        this.id_perjalanan = id_perjalanan;
     }
 
     public int getBiaya() {
@@ -134,5 +135,13 @@ public class loadView_rw_perjalanan {
 
     public void setId_destinasi(int id_destinasi) {
         this.id_destinasi = id_destinasi;
+    }
+
+    public int getId_perjalanan() {
+        return id_perjalanan;
+    }
+
+    public void setId_perjalanan(int id_perjalanan) {
+        this.id_perjalanan = id_perjalanan;
     }
 }

@@ -25,5 +25,7 @@
     <color name="colorBackgroundButton">#DAD5D5</color>
     <color name="colorYellow">#FFEB3B</color>
 
+    <color name="colorChatAbuAbu">#1ABDB8B8</color>
+    <color name="colorChatPrimary">#1A008577</color>
 
 </resources>

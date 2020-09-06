@@ -63,6 +63,7 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
         holder.tv_nama_voucher.setText(listVoucher.get(position).getNama_voucher());
         holder.tv_hari.setText(listVoucher.get(position).getHari_pembelian());
         holder.tv_tanggal.setText(tgl_pembelian);
+        holder.img_status.setImageResource(R.drawable.services);
         holder.cv_riwayat.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -93,7 +94,7 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView tv_harga, tv_nama_voucher, tv_hari, tv_tanggal;
-        ImageView btn_delete;
+        ImageView btn_delete, img_status;
         CardView cv_riwayat;
 
         public ViewHolder(@NonNull View itemView) {
@@ -104,6 +105,7 @@ public class rw_voucher_pembelian extends RecyclerView.Adapter<rw_voucher_pembel
             tv_tanggal = itemView.findViewById(R.id.tv_tanggal);
             btn_delete = itemView.findViewById(R.id.show_detail);
             cv_riwayat = itemView.findViewById(R.id.cv_riwayat);
+            img_status = itemView.findViewById(R.id.img_status);
         }
     }
     private void popupmenu(View v, int getId){

@@ -35,7 +35,7 @@
             android:padding="5dp"
             >
 
-            <View
+            <ImageView
                 android:id="@+id/img_status"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -43,7 +43,7 @@
                 android:layout_alignBottom="@+id/tv_tanggal"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:background="@color/colorPrimary" />
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:ellipsize="none"

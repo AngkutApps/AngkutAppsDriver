@@ -90,20 +90,25 @@ public class Df_chat extends DialogFragment {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String,Object> map = new HashMap<String, Object>();
-                temp_key = root.push().getKey();
-                root.updateChildren(map);
+                if (etPesan.getText().toString().equalsIgnoreCase("")){
+                    Toast.makeText(getContext(), "Tolong Tulis Pesan Terlebih Dahulu", Toast.LENGTH_SHORT).show();
+                }else {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    temp_key = root.push().getKey();
+                    root.updateChildren(map);
 
-                Calendar calendar = Calendar.getInstance();
-                String tgl = DateFormat.format("dd/MM/yyyy HH:mm", calendar.getTime()).toString();
+                    Calendar calendar = Calendar.getInstance();
+                    String tgl = DateFormat.format("dd/MM/yyyy HH:mm", calendar.getTime()).toString();
 
-                DatabaseReference message_root = root.child(temp_key);
-                Map<String,Object> map2 = new HashMap<String, Object>();
-                map2.put("msg",etPesan.getText().toString().trim());
-                map2.put("waktu", tgl);
-                map2.put("kondisi","Driver");
+                    DatabaseReference message_root = root.child(temp_key);
+                    Map<String, Object> map2 = new HashMap<String, Object>();
+                    map2.put("msg", etPesan.getText().toString().trim());
+                    map2.put("waktu", tgl);
+                    map2.put("kondisi", "Driver");
 
-                message_root.updateChildren(map2);
+                    message_root.updateChildren(map2);
+                    etPesan.setText("");
+                }
             }
         });
 

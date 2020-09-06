@@ -78,7 +78,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/gift" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/help" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/contact" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -204,7 +204,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/settings" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/share" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -288,7 +288,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/suggestion" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -330,7 +330,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/question" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -372,7 +372,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40sp"
                         android:layout_marginRight="25dp"
-                        android:background="@color/colorPrimary" />
+                        android:src="@drawable/logout" />
 
                     <TextView
                         android:layout_width="wrap_content"
