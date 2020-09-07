@@ -319,7 +319,7 @@ public class KonfirmasiEmailFragment extends Fragment{
 //        loginProses();
 
         InputOtp inputOtp = new InputOtp(1, 120, 6, kode_otp);
-        Call<Value> verifyOtpCall = bigBoxRequest.verifyOtp("AngkutApps", inputOtp);
+        Call<Value> verifyOtpCall = bigBoxRequest.verifyOtp("AngkutAppsDriver", inputOtp);
         verifyOtpCall.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {

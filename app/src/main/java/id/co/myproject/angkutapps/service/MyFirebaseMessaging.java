@@ -3,6 +3,7 @@ package id.co.myproject.angkutapps.service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -15,6 +16,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import id.co.myproject.angkutapps.helper.Utils;
 
 public class MyFirebaseMessaging extends FirebaseMessagingService {
+    private static final String TAG = "MyFirebaseMessaging";
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
@@ -33,6 +35,8 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
             intent.putExtra("id_destinasi", idDestinasi);
             intent.putExtra("no_hp_user", noHpUser);
             LocalBroadcastManager.getInstance(MyFirebaseMessaging.this).sendBroadcast(intent);
+        }else {
+            Log.d(TAG, "onMessageReceived: YUHUUUU : Gagagl");
         }
     }
 }

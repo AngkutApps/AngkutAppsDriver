@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,8 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class OrderFragment extends DialogFragment {
-
+    private static final String TAG = "OrderFragment";
+    
     String customer, idDestinasiPassenger, noHpUser, kodeDriver;
     LatLng latLngPassanger;
 
@@ -110,6 +112,7 @@ public class OrderFragment extends DialogFragment {
                 content.put("kode_driver", kodeDriver);
                 content.put("message", "Driver akan menjemput anda");
                 DataMessage dataMessage = new DataMessage(token.getToken(), content);
+                Log.d(TAG, "onClick: Penumpang : "+token.getToken());
 
                 apiRequest.sendMessage(dataMessage)
                         .enqueue(new Callback<FCMResponse>() {
