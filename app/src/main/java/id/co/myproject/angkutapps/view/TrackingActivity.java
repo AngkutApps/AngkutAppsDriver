@@ -323,10 +323,24 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         DatabaseReference tokens = db.getReference(Utils.token_tbl);
 
         Token token = new Token(FirebaseInstanceId.getInstance().getToken());
-        if (FirebaseAuth.getInstance().getCurrentUser() != null){
-            tokens.child(kodeDriver)
-                    .setValue(token);
-        }
+        tokens.child(kodeDriver)
+                .setValue(token)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+//                            Toast.makeText(TrackingActivity.this, "Berhasil update token", Toast.LENGTH_SHORT).show();
+                        }else {
+//                            Toast.makeText(TrackingActivity.this, "gagal update token", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(TrackingActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void buildLocationRequest() {
@@ -394,6 +408,8 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                                 mMap.clear();
                                             }
 
+//                                            Toast.makeText(TrackingActivity.this, "asal sini", Toast.LENGTH_SHORT).show();
+
                                             mCurrentMarker = mMap.addMarker(new MarkerOptions()
                                                     .position(new LatLng(latitude, longitude))
                                                     .title("Your location"));
@@ -410,6 +426,7 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
                                         }
                                     }
                                 }else {
+                                    mMap.clear();
                                     loadDestinasi();
                                 }
                             }
@@ -425,6 +442,8 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
         List<Location> addresseKabupaten = new ArrayList<>();
 
         mMap.clear();
+
+        Toast.makeText(this, "Load destinasi", Toast.LENGTH_SHORT).show();
 
         mCurrentMarker = mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(Utils.mLastLocation.getLatitude(), Utils.mLastLocation.getLongitude()))
