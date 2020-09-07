@@ -36,8 +36,10 @@ import id.co.myproject.angkutapps.MainActivity;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.helper.Utils;
 import id.co.myproject.angkutapps.model.data_access_object.Driver;
+import id.co.myproject.angkutapps.model.data_access_object.InputOtp;
 import id.co.myproject.angkutapps.model.data_access_object.Value;
 import id.co.myproject.angkutapps.request.ApiRequest;
+import id.co.myproject.angkutapps.request.BigBoxRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,7 +68,7 @@ public class KonfirmasiEmailFragment extends Fragment{
     String verifCode, noHpUser;
     int type_sign;
 
-    ApiRequest apiRequest;
+    ApiRequest apiRequest, bigBoxRequest;
 
     public KonfirmasiEmailFragment() {
     }
@@ -80,6 +82,7 @@ public class KonfirmasiEmailFragment extends Fragment{
     public void onViewCreated( View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+        bigBoxRequest = BigBoxRequest.getRetrofitInstance().create(ApiRequest.class);
         // init broadcast receiver
 
         db = FirebaseDatabase.getInstance();
@@ -251,35 +254,60 @@ public class KonfirmasiEmailFragment extends Fragment{
         progressDialog.setMessage("Mengirim ...");
         progressDialog.show();
 
-        PhoneAuthProvider.OnVerificationStateChangedCallbacks mCall = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        InputOtp inputOtp = new InputOtp(1, "0"+noHpUser, 120, 6);
+
+        Call<Value> sendOtpCall = bigBoxRequest.sendOtp("AngkutAppsDriver", inputOtp);
+        sendOtpCall.enqueue(new Callback<Value>() {
             @Override
-            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                String code = phoneAuthCredential.getSmsCode();
-                if (code != null) {
+            public void onResponse(Call<Value> call, Response<Value> response) {
+                if (response.isSuccessful()){
+                    if (response.body().getStatus().equals("SENT")){
+                        progressDialog.dismiss();
+                        Toast.makeText(getActivity(), "Kode OTP berhasil dikirim", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(), "Gagal mengirim", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
                     progressDialog.dismiss();
+                    Toast.makeText(getActivity(), "Gagal Server", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-                progressDialog.dismiss();
-                Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<Value> call, Throwable t) {
+                Toast.makeText(getActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
+        });
 
-            @Override
-            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                super.onCodeSent(s, forceResendingToken);
-                verifCode = s;
-                Toast.makeText(getActivity(), "Berhasil terkirim", Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-            }
-        };
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                "+62" + noHpUser,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                TaskExecutors.MAIN_THREAD,   // Activity (for callback binding)
-                mCall);
+//        PhoneAuthProvider.OnVerificationStateChangedCallbacks mCall = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//            @Override
+//            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//                String code = phoneAuthCredential.getSmsCode();
+//                if (code != null) {
+//                    progressDialog.dismiss();
+//                }
+//            }
+//
+//            @Override
+//            public void onVerificationFailed(@NonNull FirebaseException e) {
+//                progressDialog.dismiss();
+//                Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+//                super.onCodeSent(s, forceResendingToken);
+//                verifCode = s;
+//                Toast.makeText(getActivity(), "Berhasil terkirim", Toast.LENGTH_SHORT).show();
+//                progressDialog.dismiss();
+//            }
+//        };
+//        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                "+62" + noHpUser,        // Phone number to verify
+//                60,                 // Timeout duration
+//                TimeUnit.SECONDS,   // Unit of timeout
+//                TaskExecutors.MAIN_THREAD,   // Activity (for callback binding)
+//                mCall);
 
 
     }
@@ -290,30 +318,56 @@ public class KonfirmasiEmailFragment extends Fragment{
 
 //        loginProses();
 
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verifCode, kode_otp);
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            if (type_sign == Utils.TYPE_SIGN_UP_BUNDLE) {
-                                registerProses();
-                            }else if (type_sign == Utils.TYPE_SIGN_IN_BUNDLE){
-                                loginProses();
-                            }
-                        } else {
-                            Toast.makeText(getActivity(), "" + task.getException(), Toast.LENGTH_SHORT).show();
+        InputOtp inputOtp = new InputOtp(1, 120, 6, kode_otp);
+        Call<Value> verifyOtpCall = bigBoxRequest.verifyOtp("AngkutApps", inputOtp);
+        verifyOtpCall.enqueue(new Callback<Value>() {
+            @Override
+            public void onResponse(Call<Value> call, Response<Value> response) {
+                if (response.isSuccessful()){
+                    if (response.body().getMessage().equals("Your OTP is valid")){
+                        if (type_sign == Utils.TYPE_SIGN_UP_BUNDLE) {
+                            registerProses();
+                        }else if (type_sign == Utils.TYPE_SIGN_IN_BUNDLE){
+                            loginProses();
                         }
+                    }else{
+                        Toast.makeText(getActivity(), "Gagal mengirim", Toast.LENGTH_SHORT).show();
                     }
-                })
-                .addOnFailureListener(getActivity(), new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                }else {
+                    Toast.makeText(getActivity(), "Gagal server", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Value> call, Throwable t) {
+                Toast.makeText(getActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verifCode, kode_otp);
+//        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+//        firebaseAuth.signInWithCredential(credential)
+//                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            if (type_sign == Utils.TYPE_SIGN_UP_BUNDLE) {
+//                                registerProses();
+//                            }else if (type_sign == Utils.TYPE_SIGN_IN_BUNDLE){
+//                                loginProses();
+//                            }
+//                        } else {
+//                            Toast.makeText(getActivity(), "" + task.getException(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                })
+//                .addOnFailureListener(getActivity(), new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        progressDialog.dismiss();
+//                        Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
     }
 
