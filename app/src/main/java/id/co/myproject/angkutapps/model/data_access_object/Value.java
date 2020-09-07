@@ -4,6 +4,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Value {
+    @SerializedName("status")
+    @Expose
+    private String status;
+
+
     @SerializedName("value")
     @Expose
     private int value;
@@ -71,5 +76,13 @@ public class Value {
 
     public void setIdUsulan(int idUsulan) {
         this.idUsulan = idUsulan;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

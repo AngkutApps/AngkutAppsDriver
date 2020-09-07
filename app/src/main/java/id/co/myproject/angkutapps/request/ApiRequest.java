@@ -3,6 +3,7 @@ package id.co.myproject.angkutapps.request;
 import java.util.List;
 
 import id.co.myproject.angkutapps.model.data_access_object.FCMResponse;
+import id.co.myproject.angkutapps.model.data_access_object.InputOtp;
 import id.co.myproject.angkutapps.model.data_access_object.JenisKendaraan;
 import id.co.myproject.angkutapps.model.data_access_object.Penjemputan;
 import id.co.myproject.angkutapps.model.data_access_object.Penumpang;
@@ -15,6 +16,8 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
 
@@ -116,5 +119,26 @@ public interface ApiRequest {
     })
     @POST("fcm/send")
     Call<FCMResponse> sendMessage(@Body DataMessage body);
+
+    @Headers({
+            "Content-Type:application/json",
+            "x-api-key: b4emnOXwXDdGSeTZH2DcHKqhHCXCFSqI"
+    })
+    @PUT("otp/{key}")
+    Call<Value> sendOtp(
+            @Path("key") String key,
+            @Body InputOtp inputOtp
+    );
+
+
+    @Headers({
+            "Content-Type:application/json",
+            "x-api-key: b4emnOXwXDdGSeTZH2DcHKqhHCXCFSqI"
+    })
+    @POST("otp/{key}/verifications")
+    Call<Value> verifyOtp(
+            @Path("key") String key,
+            @Body InputOtp inputOtp
+    );
 
 }
