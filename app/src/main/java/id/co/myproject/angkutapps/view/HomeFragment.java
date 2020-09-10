@@ -172,7 +172,14 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 if (task.isSuccessful()) {
                     setUpLocation();
                     updateFirebaseToken();
+                }else{
+                    Toast.makeText(getActivity(), "Gagal simpan", Toast.LENGTH_SHORT).show();
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
