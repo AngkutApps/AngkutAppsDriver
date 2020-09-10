@@ -445,9 +445,9 @@ public class TrackingActivity extends FragmentActivity implements OnMapReadyCall
 
         Toast.makeText(this, "Load destinasi", Toast.LENGTH_SHORT).show();
 
-        mCurrentMarker = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(Utils.mLastLocation.getLatitude(), Utils.mLastLocation.getLongitude()))
-                .title("Your location"));
+//        mCurrentMarker = mMap.addMarker(new MarkerOptions()
+//                .position(new LatLng(Utils.mLastLocation.getLatitude(), Utils.mLastLocation.getLongitude()))
+//                .title("Your location"));
 
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         builder.include(new LatLng(Utils.mLastLocation.getLatitude(), Utils.mLastLocation.getLongitude()));

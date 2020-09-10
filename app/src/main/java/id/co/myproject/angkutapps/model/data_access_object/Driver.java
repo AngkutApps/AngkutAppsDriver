@@ -47,6 +47,10 @@ public class Driver implements Parcelable {
     @Expose
     private String idJenisKendaraan;
 
+    @SerializedName("status")
+    @Expose
+    private String status;
+
     public Driver(String kodeDriver, String email, String nama, String merkMobil, String plat, String jk, String foto, String alamat, String noHp, String idJenisKendaraan) {
         this.kodeDriver = kodeDriver;
         this.email = email;
@@ -143,6 +147,17 @@ public class Driver implements Parcelable {
         this.noHp = noHp;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public static Creator<Driver> getCREATOR() {
+        return CREATOR;
+    }
 
     @Override
     public int describeContents() {

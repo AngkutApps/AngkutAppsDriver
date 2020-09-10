@@ -2,7 +2,7 @@ package id.co.myproject.angkutapps.model.data_access_object;
 
 public class DataDriver {
 
-    String kode_driver, nama_driver, email;
+    String kode_driver, nama_driver, email, status;
     char jenis_kelamin;
     String foto, merk_mobil, nama_jenis_kendaraan, plat_mobil, warna_kendaraan;
 
@@ -91,5 +91,13 @@ public class DataDriver {
 
     public void setWarna_kendaraan(String warna_kendaraan) {
         this.warna_kendaraan = warna_kendaraan;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

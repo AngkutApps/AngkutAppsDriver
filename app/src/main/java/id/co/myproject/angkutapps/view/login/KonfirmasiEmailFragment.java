@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
@@ -35,10 +37,12 @@ import androidx.fragment.app.Fragment;
 import id.co.myproject.angkutapps.MainActivity;
 import id.co.myproject.angkutapps.R;
 import id.co.myproject.angkutapps.helper.Utils;
+import id.co.myproject.angkutapps.model.data_access_object.DataDriver;
 import id.co.myproject.angkutapps.model.data_access_object.Driver;
 import id.co.myproject.angkutapps.model.data_access_object.InputOtp;
 import id.co.myproject.angkutapps.model.data_access_object.Value;
 import id.co.myproject.angkutapps.request.ApiRequest;
+import id.co.myproject.angkutapps.request.ApiRequestDataDriver;
 import id.co.myproject.angkutapps.request.BigBoxRequest;
 import id.co.myproject.angkutapps.request.RetrofitRequest;
 import retrofit2.Call;
@@ -52,6 +56,8 @@ import static id.co.myproject.angkutapps.helper.Utils.NOHP_DRIVER_KEY;
 
 
 public class KonfirmasiEmailFragment extends Fragment{
+
+    private static final String TAG = "KonfirmasiEmailFragment";
 
     private EditText etKonfirOTP1, etKonfirOTP2, etKonfirOTP3, etKonfirOTP4, etKonfirOTP5, etKonfirOTP6;
     private TextView tvKirimUlang;
@@ -433,7 +439,6 @@ public class KonfirmasiEmailFragment extends Fragment{
                     if (response.body().getValue() == 1){
                         String noHpUser = response.body().getNoHpDriver();
                         String kodeDriver = response.body().getKodeDriver();
-                        Toast.makeText(getActivity(), "Kode driver : "+kodeDriver, Toast.LENGTH_SHORT).show();
                         editor.putString(NOHP_DRIVER_KEY, noHpUser);
                         editor.putString(KODE_DRIVER_KEY, kodeDriver);
                         editor.putBoolean(LOGIN_STATUS, true);
@@ -454,5 +459,6 @@ public class KonfirmasiEmailFragment extends Fragment{
             }
         });
     }
+
 
 }
